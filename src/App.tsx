@@ -1,4 +1,3 @@
-import './App.css'
 import { Navigate, Route, Routes } from "react-router-dom";
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
@@ -8,8 +7,7 @@ import SignUp from './components/Sign/SignUp'
 
 function App() {
   return (
-    <div className="container">
-      for-example
+    <div>
       <Header/>
       <Footer/>
     </div>
