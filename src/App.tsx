@@ -7,10 +7,12 @@ import SignUp from './components/Sign/SignUp'
 
 function App() {
   return (
+    <>
     <div>
       <Header/>
       <Footer/>
     </div>
+    </>
   )
 }
 
