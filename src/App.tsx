@@ -1,4 +1,3 @@
-import './App.css'
 import { Navigate, Route, Routes } from "react-router-dom";
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
@@ -9,12 +8,13 @@ import Categories from './components/Categories/Categories';
 
 function App() {
   return (
-    <div className="container">
-      for-example
+    <>
+    <div>
       <Header/>
       <Footer/>
       <Categories/> 
     </div>
+    </>
   )
 }
 

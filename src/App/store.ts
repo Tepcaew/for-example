@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit"
 // import application from "../features/applicationSlice";
 import categories from "../features/categoriesSlice";
 // import program from "../features/programSlice";
