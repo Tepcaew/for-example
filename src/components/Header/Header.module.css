@@ -8,6 +8,66 @@
     width: 1168px;
     margin: 0 auto;
 }
+.content div{
+
+}
+.btn1 {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    padding: 9px 12px;
+    border-radius: 100px;
+}
+.btn1:hover {
+    background-color: #3d3bff;
+    border-color: #3d3bff;
+    color: white;
+}
+.btn2{
+    display: flex;
+    align-items: center;
+
+    background-color: #3d3bff ;
+    border: 1px solid #3d3bff ;
+    color: white;
+    padding: 9px 12px;
+    border-radius: 100px;
+}
+.svg2{
+    width: 25px;
+    top: 6px;
+    fill: black;
+
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+.svg3{
+    display: none;
+width: 25px;
+color: red;
+transform: translateX(-25.6px);
+}
+.svg1{
+    transform: rotate(180deg);
+    width: 25px;
+    top: 6px;
+    fill: white;
+
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+.svg2:hover{
+    color: white;
+    fill: white;
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
 .content{
     display: flex;
     justify-content: space-between;
@@ -49,6 +109,7 @@ li{
     position: absolute;
     right: 0;
     top: 96px;
+    z-index: 5;
 }
 .cont{
     background-color: white;
@@ -63,7 +124,7 @@ li{
     font-size: 16px;
 }
 .qq{
-    width: 1168px;
+    max-width:1168px;
 
     grid-gap: 40px 98px;
     align-items: flex-start;
@@ -108,4 +169,17 @@ li{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.lb{
+    display: block;
+    position: relative;
+}
+.lb button{
+    color: black;
+    right: 230px;
+    width: 48px;
+    position: absolute;
+    top: 17px;
+    border: none;
+    background-color: transparent;
 }
