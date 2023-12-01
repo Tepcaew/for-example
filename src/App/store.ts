@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 // import application from "../features/applicationSlice";
-// import categories from "../features/categoriesSlice";
+import categories from "../features/categoriesSlice";
 // import program from "../features/programSlice";
 // import user from "../features/userSlice";
 
@@ -8,7 +8,7 @@ import { configureStore } from "@reduxjs/toolkit";
 const store = configureStore({
     reducer:{
 //         application,
-//         categories,
+        categories,
 //         program,
 //         user
     },

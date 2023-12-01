@@ -1,44 +1,65 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories } from "../../features/categoriesSlice";
+import { Link } from "react-router-dom";
 const Header = () => {
+  const dispatch = useDispatch();
   const [courses, setCourses] = useState(false);
   const handle = () => {
     setCourses(courses ? false : true);
   };
+  const categories = useSelector((state) => state.categories.categories);
+  console.log(categories);
+
+  const [text, setText] = useState("")
+
+  const handleText = ()=>{
+    setText(text)
+  }
+  // const filtered = all.filter((item) => {
+  //   return item.name.toLowerCase().includes(value.toLowerCase());
+  // });
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
   return (
     <>
       <div className={styles.header}>
         <div className={styles.content}>
           <h3>for-example</h3>
-          <div onClick={handle} className={courses?styles.btn2:styles.btn1}>
-              <span>Все курсы</span> 
-              <svg 
-              className={courses?styles.svg1:styles.svg2}
-                xmlns="http://www.w3.org/2000/svg"
-                id="Layer_1"
-                data-name="Layer 1"
-                viewBox="0 0 24 24"
-              >
-                <path  d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z" />
-              </svg>
-              <svg  
+          <div onClick={handle} className={courses ? styles.btn2 : styles.btn1}>
+            <span>Все курсы</span>
+            <svg
+              className={courses ? styles.svg1 : styles.svg2}
+              xmlns="http://www.w3.org/2000/svg"
+              id="Layer_1"
+              data-name="Layer 1"
+              viewBox="0 0 24 24"
+            >
+              <path d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z" />
+            </svg>
+            <svg
               className={styles.svg3}
-                xmlns="http://www.w3.org/2000/svg"
-                id="Layer_1"
-                data-name="Layer 1"
-                viewBox="0 0 24 24"
-              >
-                <path fill="black" d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z" />
-              </svg>
+              xmlns="http://www.w3.org/2000/svg"
+              id="Layer_1"
+              data-name="Layer 1"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="black"
+                d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z"
+              />
+            </svg>
           </div>
-
           <nav>
             <ul className={styles.navList}>
               <li>О for-example</li>
               <li>Вебинары</li>
               <li>Медиа</li>
               <li>Компаниям</li>
-              <li>Войти</li>
+              <Link to="/login">Войти</Link>
             </ul>
           </nav>
         </div>
@@ -49,7 +70,12 @@ const Header = () => {
             <div className={styles.qq}>
               <div>
                 <label htmlFor="" className={styles.lb}>
-                  <input type="text" placeholder="Какой курс вы ищете?" />
+                  <input
+                    type="text"
+                    placeholder="Какой курс вы ищете?"
+                    value={text}
+                    onChange={handleText}
+                  />
                   <button>x</button>
                 </label>
               </div>
@@ -60,51 +86,15 @@ const Header = () => {
                 />
               </article>
               <ul className={styles.categories}>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>программирование</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="">
-                    <span>Дизайн</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>программирование</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="">
-                    <span className={styles.span}>Дизайн</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>Кино и сериалы</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="">
-                    <span>Дизайн</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>Игры</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="">
-                    <span>Музыка</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>Аналитик</span>
-                  </a>
-                </li>
+                {categories.map((item) => {
+                  return (
+                    <li key={item._id} className={styles.category}>
+                      <a href="#">
+                        <span>{item.name}</span>
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

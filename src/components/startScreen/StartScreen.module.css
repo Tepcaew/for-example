@@ -2,6 +2,7 @@
     max-width: 1280px;
     margin: 0 auto;
     background-color: #fff;
+    margin-bottom: 120px ;
 }
 
 .photoDiv{
@@ -125,4 +126,51 @@
     padding: 18px 50px 18px 42px;
     font-size: 16px;
     width: 100%;
+}
+
+
+
+.whyMe{
+    display: grid;
+    margin-bottom: 120px;
+    grid-gap: 32px;
+    grid-template-columns: 1fr 568px
+}
+.whyMe h2{
+    font-size: 40px;
+    line-height: 42px;
+    font-weight: 500px;
+}
+
+.section2{
+    width: 1168px;
+    margin: 0 auto;
+}
+.whyMeList{
+    grid-gap: 48px 32px;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 24px;
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.whyMeListB {
+    font-size: 32px;
+    line-height: 36px;
+}
+.whyMeListP{
+
+        font-size: 16px;
+        line-height: 22px;
+}
+.category a:hover{
+    text-decoration: none;
+    color: white;
+    padding: 9px 12px;
+    border-color: black;
+    border-radius: 30px;
+    background-color: black;
+    transition: 1s ease-in-out;
 }
