@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./StartScreen.module.css";
+import Categories from "../Categories/Categories";
 const StartScreen = () => {
   return (
     <>
@@ -9,55 +10,7 @@ const StartScreen = () => {
             <h1>
               Получите новые навыки <br /> для карьеры
             </h1>
-            <div>
-              <ul className={styles.categories}>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>программирование</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="">
-                    <span>Дизайн</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>программирование</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="">
-                    <span className={styles.span}>Дизайн</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>Кино и сериалы</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="">
-                    <span>Дизайн</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>Игры</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="">
-                    <span>Музыка</span>
-                  </a>
-                </li>
-                <li className={styles.category}>
-                  <a href="#">
-                    <span>Аналитик</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <Categories/>
           </div>
           <div className={styles.divImage}>
             <ul className={styles.listPhoto}>
