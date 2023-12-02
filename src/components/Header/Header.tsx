@@ -10,7 +10,6 @@ const Header = () => {
     setCourses(courses ? false : true);
   };
   const categories = useSelector((state) => state.categories.categories);
-  console.log(categories);
 
   const [text, setText] = useState("")
 
@@ -28,7 +27,7 @@ const Header = () => {
     <>
       <div className={styles.header}>
         <div className={styles.content}>
-          <h3>for-example</h3>
+          <Link to={"/"}><h3>for-example</h3></Link>
           <div onClick={handle} className={courses ? styles.btn2 : styles.btn1}>
             <span>Все курсы</span>
             <svg

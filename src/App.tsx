@@ -5,17 +5,21 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import SignIn from "./components/Sign/SignIn";
 import SignUp from "./components/Sign/SignUp";
 import StartScreen from "./components/startScreen/StartScreen";
+import Programs from "./components/Programs/Programs";
+import OneProgram from "./components/Programs/OneProgram";
 
 function App() {
   return (
     <>
       <div>
         <Header />
-        <StartScreen />
         <Routes>
           <Route path="/" element={<StartScreen />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/sign" element={<SignUp />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/programs/:categoryId" element={<Programs />} />
+          <Route path="/program/:id" element={<OneProgram />} />
         </Routes>
         <Footer />
       </div>
