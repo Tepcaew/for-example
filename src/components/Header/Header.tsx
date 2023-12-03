@@ -87,11 +87,11 @@ const Header = () => {
               <ul className={styles.categories}>
                 {categories.map((item) => {
                   return (
-                    <li key={item._id} className={styles.category}>
+                    <Link to={`/programs/${item._id}`} className={styles.category}>
                       <a href="#">
-                        <span>{item.name}</span>
+                        <span>{item.categoryName}</span>
                       </a>
-                    </li>
+                    </Link>
                   );
                 })}
               </ul>

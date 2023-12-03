@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<StartScreen />} />
           <Route path="/login" element={<SignIn />} />
-          <Route path="/sign" element={<SignUp />} />
+          <Route path="/signUp" element={<SignUp />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/programs/:categoryId" element={<Programs />} />
           <Route path="/program/:id" element={<OneProgram />} />
