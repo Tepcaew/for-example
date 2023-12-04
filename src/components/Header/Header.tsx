@@ -3,31 +3,45 @@ import styles from "./Header.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../features/categoriesSlice";
 import { Link } from "react-router-dom";
+import { exits, getUserById } from "../../features/applicationSlice";
 const Header = () => {
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.application.token);
+  const user = useSelector((state) => state.application.user);
+
   const [courses, setCourses] = useState(false);
   const handle = () => {
     setCourses(courses ? false : true);
   };
   const categories = useSelector((state) => state.categories.categories);
 
-  const [text, setText] = useState("")
+  const [text, setText] = useState("");
 
-  const handleText = ()=>{
-    setText(text)
-  }
+  const handleText = () => {
+    setText(text);
+  };
+  const handleExit = (e) => {
+    e.preventDefault();
+    dispatch(exits());
+  };
   // const filtered = all.filter((item) => {
   //   return item.name.toLowerCase().includes(value.toLowerCase());
   // });
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
-
+  useEffect(() => {
+    if (token) {
+      dispatch(getUserById());
+    }
+  }, [dispatch, token]);
   return (
     <>
       <div className={styles.header}>
         <div className={styles.content}>
-          <Link to={"/"}><h3>for-example</h3></Link>
+          <Link to={"/"}>
+            <h3>for-example</h3>
+          </Link>
           <div onClick={handle} className={courses ? styles.btn2 : styles.btn1}>
             <span>Все курсы</span>
             <svg
@@ -55,10 +69,21 @@ const Header = () => {
           <nav>
             <ul className={styles.navList}>
               <li>О for-example</li>
+              {token && (
+                <Link to={"/mycourse"}>
+                  <li>Мои курсы</li>
+                </Link>
+              )}
               <li>Вебинары</li>
               <li>Медиа</li>
               <li>Компаниям</li>
-              <Link to="/login">Войти</Link>
+              <Link to="/login">
+                {token ? (
+                  <div onClick={handleExit}>Выйти</div>
+                ) : (
+                  <div>Войти</div>
+                )}
+              </Link>
             </ul>
           </nav>
         </div>
@@ -87,10 +112,12 @@ const Header = () => {
               <ul className={styles.categories}>
                 {categories.map((item) => {
                   return (
-                    <Link to={`/programs/${item._id}`} className={styles.category}>
-                      <a href="#">
-                        <span>{item.categoryName}</span>
-                      </a>
+                    <Link
+                      to={`/programs/${item._id}`}
+                      className={styles.category}
+                      key={item._id}
+                    >
+                        <div>{item.categoryName}</div>
                     </Link>
                   );
                 })}
