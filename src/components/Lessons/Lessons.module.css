@@ -1,0 +1,128 @@
+/* компонент Lessons */
+.lessonsPage {
+  width: 80%;
+  margin: auto;
+}
+.lessonsHeader {
+  text-align: center;
+}
+.lessonsContainer {
+  width: 100%;
+  margin-top: 20px;
+}
+/* компонент Lesson */
+.lesson {
+  width: 100%;
+  margin: auto;
+  border: 1px solid rgba(253, 2, 2, 0.618);
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.153);
+}
+.lessonComplete {
+  width: 100%;
+  margin: auto;
+  border: 1px solid rgba(5, 251, 71, 0.556);
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgba(17, 255, 0, 0.166);
+}
+.lessonBodyLink {
+  text-decoration: none;
+  color: black;
+}
+.lessonBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lessonImage {
+  width: 30%;
+  min-width: 250px;
+  height: auto;
+  border-radius: 20px;
+}
+.lessonText {
+  margin: 20px;
+  width: 60%;
+}
+.lessonTitle {
+  margin-bottom: 10px;
+}
+.lessonDescr {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.lessonCompleteTrue {
+  text-align: center;
+  color: rgb(6, 6, 6);
+  background-color: rgb(81, 255, 0);
+  width: 20%;
+  min-width: 90px;
+}
+.lessonCompleteFalse {
+  text-align: center;
+  color: white;
+  background-color: red;
+  width: 20%;
+  min-width: 90px;
+}
+/* компонент OneLesson */
+.oneLesson {
+  width: 80%;
+  margin: auto;
+}
+.oneLessonButtonsBlock {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.oneLessonButton {
+  width: 30%;
+  height: auto;
+  min-height: 30px;
+  font-size: 18px;
+  border-radius: 15px;
+  color: black;
+  border: none;
+  background-color: rgb(5, 250, 5);
+  cursor: pointer;
+}
+.oneLessonButton:hover {
+  color: rgb(5, 250, 5);
+  background-color: black;
+}
+.oneLessonButtonLink {
+  color: black;
+}
+.oneLessonButtonLink:hover {
+  color: rgb(5, 250, 5);
+}
+.oneLessonBody {
+  width: 100%;
+  text-align: justify;
+}
+.oneLessonTitle {
+  text-align: center;
+  margin: 20px;
+  font-size: 28px;
+}
+.oneLessonLekciya {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.oneLessonLekciyaImage {
+  width: 100%;
+  max-width: 600px;
+  margin: 15px 0 15px 0;
+}
+.oneLessonLekciyaText {
+    
+}
+.oneLessonLekciyaHead {
+}
+.oneLessonVideourok {
+}
+.oneLessonVideourokPlayer {
+}
