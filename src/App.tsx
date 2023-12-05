@@ -7,19 +7,34 @@ import SignUp from "./components/Sign/SignUp";
 import StartScreen from "./components/startScreen/StartScreen";
 import Programs from "./components/Programs/Programs";
 import OneProgram from "./components/Programs/OneProgram";
+import KartsTraining from "./components/pageInfo/OrderTraining/kartsTraining";
+import WhyUsKarts from "./components/pageInfo/WhyUs/WhyUsKarts";
+import OurProgramms from "./components/pageInfo/OurProgramms/OurProgramms";
+import Consultation from "./components/pageInfo/Consultation/Consultation";
+import Questions from "./components/pageInfo/Questions/Questions";
 
 function App() {
   return (
     <>
       <div>
         <Header />
+        
+        
         <Routes>
+
           <Route path="/" element={<StartScreen />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/programs/:categoryId" element={<Programs />} />
           <Route path="/program/:id" element={<OneProgram />} />
+          <Route path="/karts" element={<KartsTraining />} />
+          <Route path="/kart" element={<WhyUsKarts />} />
+          <Route path="/pro" element={<OurProgramms />} />
+          <Route path="/consult" element={<Consultation />} />
+          <Route path="/Ques" element={<Questions/>} />
+
+          
         </Routes>
         <Footer />
       </div>

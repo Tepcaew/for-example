@@ -10,6 +10,7 @@ const store = configureStore({
         application,
         categories,
         programs,
+        
         // user
     },
 })
