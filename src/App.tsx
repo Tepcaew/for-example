@@ -11,7 +11,6 @@ import KartsTraining from "./components/pageInfo/OrderTraining/kartsTraining";
 import WhyUsKarts from "./components/pageInfo/WhyUs/WhyUsKarts";
 import OurProgramms from "./components/pageInfo/OurProgramms/OurProgramms";
 import Consultation from "./components/pageInfo/Consultation/Consultation";
-import Questions from "./components/pageInfo/Questions/Questions";
 
 function App() {
   return (
@@ -32,7 +31,6 @@ function App() {
           <Route path="/kart" element={<WhyUsKarts />} />
           <Route path="/pro" element={<OurProgramms />} />
           <Route path="/consult" element={<Consultation />} />
-          <Route path="/Ques" element={<Questions/>} />
 
           
         </Routes>
