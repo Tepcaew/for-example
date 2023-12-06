@@ -5,7 +5,9 @@ const initialState = {
   signinUp: false,
   signinIn: false,
   token: localStorage.getItem("token"),
-  user: {},
+  user: {
+    programs: []
+  },
   users: [],
 };
 
@@ -97,6 +99,31 @@ export const getUsers = createAsyncThunk("users/fetch", async (_, thunkAPI) => {
     thunkAPI.rejectWithValue(error);
   }
 });
+
+export const addPrograms = createAsyncThunk(
+  "user/program",
+  async ({ id, program, price }, thunkAPI) => {
+    try {
+      const res = await fetch("http://localhost:4000/user", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+        body: JSON.stringify({ id, program, price }),
+      });
+
+      const user = await res.json();
+
+      if (user.error) {
+        return thunkAPI.rejectWithValue(user.error);
+      }
+      return [id, program];
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 
 

@@ -3,8 +3,9 @@ import application from "../features/applicationSlice";
 import categories from "../features/categoriesSlice";
 import programs from "../features/programSlice";
 import consults  from "../features/consultSlice";
-// import user from "../features/userSlice";
 
+import lessons from "../features/lessonsSlice";
+// import user from "../features/userSlice";
 
 const store = configureStore({
     reducer:{
@@ -12,7 +13,7 @@ const store = configureStore({
         categories,
         programs,
         consults
-        
+        lessons,
         // user
     },
 })
