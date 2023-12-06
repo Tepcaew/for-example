@@ -2,28 +2,32 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPrograms } from "../../features/programSlice";
-import { addPrograms } from "../../features/applicationSlice";
+import { addPrograms, getUserById } from "../../features/applicationSlice";
 import styles from "./Program.module.css";
 
 const OneProgram = () => {
   const programs = useSelector((state) => state.programs.programs);
   const id = useSelector((state) => state.application.user._id);
+  const user = useSelector((state) => state.application.user);
   const cash = useSelector((state) => state.application.user.cash);
 
   const dispatch = useDispatch();
   const { program } = useParams();
   const userPrograms = useSelector((state) => state.application.user.programs);
 
-  const userProg = userPrograms.filter((item) => item.program._id === program);
+  const userProg = userPrograms?.filter((item) => item.program._id === program);
 
   const oneProgram = programs?.find((item) => item._id === program);
   const price = oneProgram.price;
+  
   const [lowCash, setLowCash] = useState(false);
-
+  
   useEffect(() => {
     dispatch(getPrograms());
+    dispatch(getUserById())
   }, [dispatch]);
-
+  
+  console.log(price, user, program);
   const handleBuyCourse = () => {
     if (cash >= price) {
       setLowCash(false);

@@ -14,6 +14,7 @@ import OneLesson from "./components/Lessons/OneLesson";
 
 function App() {
   const token = useSelector((state) => state.application.token);
+// const user = useSelector((state) => state.application.user)
 
   return (
     <>
@@ -26,7 +27,7 @@ function App() {
               <Route path="/signup" element={<Navigate to="/" />} />
               <Route path="/mycourse" element={<MyPrograms />} />
               <Route path="/mycourse/:programId" element={<Lessons />} />
-              <Route path="/lessons/:program/:id" element={<OneLesson/>} />
+              <Route path="/lessons/:programId/:lessonId" element={<OneLesson/>} />
             </>
           ) : (
             <>

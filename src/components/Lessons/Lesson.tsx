@@ -1,12 +1,13 @@
-import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import OneLesson from "./OneLesson";
+import React, {useEffect} from "react";
+import { Link } from "react-router-dom";
 import styles from "./Lessons.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserById } from "../../features/applicationSlice";
 
 const Lesson = ({
   title,
   descr,
-  id,
+  lessonId,
   number,
   text,
   text1,
@@ -21,12 +22,24 @@ const Lesson = ({
   image3,
   tasks,
   video,
-  complete,
-  program,
+  programId,
 }) => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUserById());
+  }, [dispatch]);
+
+
+  const myPrograms = useSelector((state) => state.application.user.programs)
+  const myProgram = myPrograms.find((item) => item.program._id === programId)
+  console.log(myProgram);
+  
+  const completeLesson = myProgram.lessonsComplete.includes(lessonId)
+
   return (
-    <div className={complete ? styles.lessonComplete : styles.lesson}>
-      <Link to={`/lessons/${program}/${id}`} className={styles.lessonBodyLink}>
+    <div className={completeLesson ? styles.lessonComplete : styles.lesson}>
+      <Link to={`/lessons/${programId}/${lessonId}`} className={styles.lessonBodyLink}>
         <div className={styles.lessonBody}>
           <img
             className={styles.lessonImage}
@@ -38,7 +51,7 @@ const Lesson = ({
               Урок: {number}. {title}
             </h2>
             <div className={styles.lessonDescr}>{descr}</div>
-          {complete ? (
+          {completeLesson ? (
             <div className={styles.lessonCompleteTrue}>Пройден</div>
           ) : (
             <div className={styles.lessonCompleteFalse}>Не пройден</div>

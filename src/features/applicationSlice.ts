@@ -125,6 +125,56 @@ export const addPrograms = createAsyncThunk(
   }
 );
 
+// export const completeProgram = createAsyncThunk(
+//   "user/program",
+//   async ({ id, program, price }, thunkAPI) => {
+//     try {
+//       const res = await fetch("http://localhost:4000/user", {
+//         method: "PATCH",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+//         },
+//         body: JSON.stringify({ id, program, price }),
+//       });
+
+//       const user = await res.json();
+
+//       if (user.error) {
+//         return thunkAPI.rejectWithValue(user.error);
+//       }
+//       return [id, program];
+//     } catch (error) {
+//       thunkAPI.rejectWithValue(error);
+//     }
+//   }
+// );
+
+export const completeLesson = createAsyncThunk(
+  "user/lesson",
+  async ({ id, programId, lessonId }, thunkAPI) => {
+    try {
+      const res = await fetch(`http://localhost:4000/user/lesson/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+        body: JSON.stringify({ programId, lessonId }),
+      });
+
+      const userPrograms = await res.json();
+
+      if (userPrograms.error) {
+        return thunkAPI.rejectWithValue(userPrograms.error);
+      }
+      return userPrograms;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 
 
 export const exits = createAsyncThunk("exit/user", async (_, thunkAPI) => {
