@@ -33,6 +33,9 @@
     flex-direction: column;
     justify-content: center;
   }
+  .programProgress{
+    color: rgb(3, 249, 3);
+  }
   .programImage {
     width: 100%;
     height: 60%;
