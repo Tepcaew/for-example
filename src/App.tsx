@@ -7,6 +7,7 @@ import SignUp from "./components/Sign/SignUp";
 import StartScreen from "./components/startScreen/StartScreen";
 import Programs from "./components/Programs/Programs";
 import OneProgram from "./components/Programs/OneProgram";
+
 import { useSelector } from "react-redux";
 import MyPrograms from "./components/MyPrograms/MyPrograms";
 import Lessons from "./components/Lessons/Lessons";
@@ -19,7 +20,10 @@ function App() {
     <>
       <div>
         <Header />
+        
+        
         <Routes>
+
           {token ? (
             <>
               <Route path="/login" element={<Navigate to="/" />} />
@@ -38,6 +42,13 @@ function App() {
           <Route path="/" element={<StartScreen />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/programs/:categoryId" element={<Programs />} />
+          <Route path="/program/:id" element={<OneProgram />} />
+          <Route path="/karts" element={<KartsTraining />} />
+          <Route path="/kart" element={<WhyUsKarts />} />
+          <Route path="/pro" element={<OurProgramms />} />
+          <Route path="/consult" element={<Consultation />} />
+
+          
           <Route path="/program/:program" element={<OneProgram />} />
         </Routes>
         <Footer />
