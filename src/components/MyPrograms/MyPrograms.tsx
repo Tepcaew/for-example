@@ -17,6 +17,7 @@ const MyPrograms = () => {
                     image={item.program.image}
                     lessons={item.program.lessons}
                     programId={item.program._id}
+                    lessonsComplete={item.lessonsComplete}
                     />
                 )
             })}
