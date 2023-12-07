@@ -1,0 +1,26 @@
+
+
+body .tableContain{
+    width: 800px;
+
+    margin: auto;
+}
+
+.tableInfo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px;
+    margin: 0;
+    font-size: 22px;
+    gap: 250px;
+}
+
+.tableInfo div{
+    width: 40px;
+}
+
+.tableInfo p{
+    font-size: 22px;
+}
+
