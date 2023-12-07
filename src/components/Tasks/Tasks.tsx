@@ -7,13 +7,12 @@ import { completeLesson } from "../../features/applicationSlice";
 const Tasks = ({ tasks }) => {
   const id = useSelector((state) => state.application.user._id);
   const { programId, lessonId } = useParams();
-  console.log(programId, lessonId);
   const dispatch = useDispatch();
+  
 
   const [userAnswer, setUserAnswer] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
   const [question, setQuestion] = useState(0);
-  console.log(userAnswer);
 
   const handleUserAnswer = () => {
     setUserAnswers(userAnswers.concat(userAnswer));
@@ -57,6 +56,12 @@ const Tasks = ({ tasks }) => {
       {question === 0 ? (
         <div>
           <div>{tasks[0].task.title}</div>
+          {tasks[0].task.image ? (
+            <img
+              src={`http://localhost:4000/${tasks[0].task.image}`}
+              alt="картинка вопроса"
+            />
+          ) : null}
           <ul>
             <li>
               <input
@@ -94,6 +99,12 @@ const Tasks = ({ tasks }) => {
       {question === 1 ? (
         <div>
           <div>{tasks[1].task.title}</div>
+          {tasks[1].task.image ? (
+            <img
+              src={`http://localhost:4000/${tasks[1].task.image}`}
+              alt="картинка вопроса"
+            />
+          ) : null}
           <ul>
             <li>
               <input
@@ -131,6 +142,12 @@ const Tasks = ({ tasks }) => {
       {question === 2 ? (
         <div>
           <div>{tasks[2].task.title}</div>
+          {tasks[2].task.image ? (
+            <img
+              src={`http://localhost:4000/${tasks[2].task.image}`}
+              alt="картинка вопроса"
+            />
+          ) : null}
           <ul>
             <li>
               <input
@@ -168,6 +185,12 @@ const Tasks = ({ tasks }) => {
       {question === 3 ? (
         <div>
           <div>{tasks[3].task.title}</div>
+          {tasks[3].task.image ? (
+            <img
+              src={`http://localhost:4000/${tasks[3].task.image}`}
+              alt="картинка вопроса"
+            />
+          ) : null}
           <ul>
             <li>
               <input
@@ -205,6 +228,12 @@ const Tasks = ({ tasks }) => {
       {question === 4 ? (
         <div>
           <div>{tasks[4].task.title}</div>
+          {tasks[4].task.image ? (
+            <img
+              src={`http://localhost:4000/${tasks[4].task.image}`}
+              alt="картинка вопроса"
+            />
+          ) : null}
           <ul>
             <li>
               <input

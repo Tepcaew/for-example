@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../features/categoriesSlice";
 import { Link } from "react-router-dom";
 import { exits, getUserById } from "../../features/applicationSlice";
+import logo from "../../assets/logo.png"
 const Header = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.application.token);
@@ -40,7 +41,7 @@ const Header = () => {
       <div className={styles.header}>
         <div className={styles.content}>
           <Link to={"/"}>
-            <h3>for-example</h3>
+            <img className={styles.logo} src={logo} alt="" />
           </Link>
           <div onClick={handle} className={courses ? styles.btn2 : styles.btn1}>
             <span>Все курсы</span>

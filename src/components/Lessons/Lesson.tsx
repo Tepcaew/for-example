@@ -33,7 +33,6 @@ const Lesson = ({
 
   const myPrograms = useSelector((state) => state.application.user.programs)
   const myProgram = myPrograms.find((item) => item.program._id === programId)
-  console.log(myProgram);
   
   const completeLesson = myProgram.lessonsComplete.includes(lessonId)
 
