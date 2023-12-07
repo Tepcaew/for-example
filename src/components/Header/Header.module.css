@@ -80,6 +80,7 @@ transform: translateX(-25.6px);
 .navList{
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 a, li{
     list-style: none;
@@ -183,3 +184,72 @@ a, li{
     border: none;
     background-color: transparent;
 }
+.avatar{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+}
+.profile{
+    display: none;
+    background-color: #3d3bff;
+    z-index: 12;
+    width: 180px;
+    height: 250px;
+    top: 70px;
+    right: -370px;
+    transition: 5s ease-in-out;
+    animation: forwards ;
+    transition: all 1.5s linear;
+    gap: 10px;
+}
+.profile2{
+    display: block;
+    top: 70px;
+    right: -56px;
+    position: absolute;
+    z-index: 12;
+    width: 180px;
+    height: auto;
+    background-color: #3d3bff;
+    border-radius: 10px;
+    transition: 3s ease-in-out;
+}
+.profile2 p{
+    cursor: pointer;
+    padding: 10px 5px;
+    color: black;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    margin: 10px 10px 15px 10px;
+
+}
+.profileTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 9px;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.svg4{
+    transform: rotate(180deg);
+    width: 25px;
+    top: 6px;
+    fill: black;
+
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+.svg3{
+    transform: rotate(0deg);
+    width: 25px;
+    top: 6px;
+    fill: black;
+
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
