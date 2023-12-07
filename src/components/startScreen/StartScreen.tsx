@@ -4,7 +4,7 @@ import Categories from "../Categories/Categories";
 import rasul from "../../assets/rasul.jpg"
 const StartScreen = () => {
   return (
-    <>
+    <div className={styles.fullScreen}>
       <div className={styles.startScreen}>
         <div className={styles.container}>
           <div className={styles.content}>
@@ -40,7 +40,7 @@ const StartScreen = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className={styles.blockSecond}>
         <div className={styles.section2}>
           <div className={styles.whyMe}>
             <h2>Почему выбирают образовательную платформу&nbsp;For-Example</h2>
@@ -65,7 +65,7 @@ const StartScreen = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

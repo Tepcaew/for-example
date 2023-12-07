@@ -8,7 +8,7 @@ import styles from "./Program.module.css";
 const OneProgram = () => {
   const programs = useSelector((state) => state.programs.programs);
   const id = useSelector((state) => state.application.user._id);
-  const user = useSelector((state) => state.application.user);
+  // const user = useSelector((state) => state.application.user);
   const cash = useSelector((state) => state.application.user.cash);
 
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const OneProgram = () => {
   const userProg = userPrograms?.filter((item) => item.program._id === program);
 
   const oneProgram = programs?.find((item) => item._id === program);
-  const price = oneProgram.price;
+  const price = oneProgram?.price;
   
   const [lowCash, setLowCash] = useState(false);
   
@@ -27,7 +27,6 @@ const OneProgram = () => {
     dispatch(getUserById())
   }, [dispatch]);
   
-  console.log(price, user, program);
   const handleBuyCourse = () => {
     if (cash >= price) {
       setLowCash(false);
@@ -37,20 +36,20 @@ const OneProgram = () => {
     }
   };
   return (
-    <div key={oneProgram._id} className={styles.oneProgram}>
-      <div className={styles.oneProgramName}>{oneProgram.programName}</div>
+    <div key={oneProgram?._id} className={styles.oneProgram}>
+      <div className={styles.oneProgramName}>{oneProgram?.programName}</div>
       <img
         className={styles.oneProgramImage}
-        src={`http://localhost:4000/${oneProgram.image}`}
+        src={`http://localhost:4000/${oneProgram?.image}`}
         alt="картинка программы"
       />
       <div className={styles.oneProgramDescr}>
         <h2 className={styles.oneProgramDescrHead}>О курсе</h2>
-        {oneProgram.descr}
+        {oneProgram?.descr}
       </div>
       <div className={styles.oneProgramVideo}>
         <iframe
-          src={`https://www.youtube.com/embed/${oneProgram.demo}?autoplay=0&mute=0`}
+          src={`https://www.youtube.com/embed/${oneProgram?.demo}?autoplay=0&mute=0`}
           name="youtube embed"
           allow="autoplay; encrypted-media"
           allowFullScreen
@@ -58,7 +57,7 @@ const OneProgram = () => {
         ></iframe>
       </div>
       <div className={styles.oneProgramPrice}>
-        Стоимость курса: {oneProgram.price}
+        Стоимость курса: {oneProgram?.price}
       </div>
       {lowCash ? (
         <div className={styles.oneProgramLowCash}>Недостаточно средств</div>

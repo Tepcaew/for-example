@@ -36,7 +36,6 @@ function App() {
               />
                 <Route path="/consults" element={<Consul />} />
             </>
-
             // роут для страницы консультаций - в этом компоненте через useSelector достаем консультации и выводим через мап
           ) : (
             <>
@@ -47,8 +46,9 @@ function App() {
           )}
           <Route path="/" element={<StartScreen />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/programs" element={<Programs />} />
           <Route path="/programs/:categoryId" element={<Programs />} />
-          <Route path="/program/:id" element={<OneProgram />} />
+          <Route path="/program/:program" element={<OneProgram />} />
           <Route path="/karts" element={<KartsTraining />} />
           <Route path="/kart" element={<WhyUsKarts />} />
           <Route path="/pro" element={<OurProgramms />} />

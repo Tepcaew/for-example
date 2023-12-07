@@ -14,12 +14,12 @@ const Program = ({
 }) => {
   return (
     <div className={styles.programCard}>
-      <div className={styles.programName}>{programName}</div>
       <img
         className={styles.programImage}
         src={`http://localhost:4000/${image}`}
         alt="картинка программы"
       />
+      <div className={styles.programName}>{programName}</div>
       <div className={styles.programCategoryAndPrice}>
         <div className={styles.programCategory}>{category.categoryName}</div>
         <div className={styles.programPrice}>Стоимость курса: {price} ₽</div>
