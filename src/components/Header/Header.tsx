@@ -9,6 +9,13 @@ const Header = () => {
   const token = useSelector((state) => state.application.token);
   const user = useSelector((state) => state.application.user);
 
+  const [open, setOpen] = useState(false);
+
+  const openCloseProfile = () => {
+    setOpen(!open);
+  };
+  console.log(open);
+
   const [courses, setCourses] = useState(false);
   const handle = () => {
     setCourses(courses ? false : true);
@@ -53,7 +60,7 @@ const Header = () => {
             >
               <path d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z" />
             </svg>
-            <svg
+            {/* <svg
               className={styles.svg3}
               xmlns="http://www.w3.org/2000/svg"
               id="Layer_1"
@@ -64,26 +71,61 @@ const Header = () => {
                 fill="black"
                 d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z"
               />
-            </svg>
+            </svg> */}
           </div>
           <nav>
             <ul className={styles.navList}>
               <li>О for-example</li>
-              {token && (
-                <Link to={"/mycourse"}>
-                  <li>Мои курсы</li>
-                </Link>
-              )}
+
               <li>Вебинары</li>
               <li>Медиа</li>
               <li>Компаниям</li>
-              <Link to="/login">
+
                 {token ? (
-                  <div onClick={handleExit}>Выйти</div>
+                  <>
+                    <div>
+                      <div
+                        onClick={openCloseProfile}
+                        className={styles.profileTop}
+                      >
+                        <span>
+                          <img
+                            className={styles.avatar}
+                            src={`http://localhost:4000/${user?.avatar}`}
+                            alt=""
+                          />
+                        </span>
+                        <span>{user.login}</span>
+                        <svg
+                          className={open ? styles.svg4 : styles.svg3}
+                          xmlns="http://www.w3.org/2000/svg"
+                          id="Layer_1"
+                          data-name="Layer 1"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {open && (
+                      <div className={open?styles.profile2:styles.profile}>                               
+                          {token && (
+                            <Link to={"/mycourse"}>
+                              <p>Мои курсы</p>
+                            </Link>
+                          )}
+                          <p>мой баланс: {user.cash}руб</p>
+
+                          <p>сообщения</p>
+                          <p>настройки</p>
+                          <p onClick={handleExit}>выйти из аккаунта</p>
+
+                      </div>
+                    )}
+                  </>
                 ) : (
-                  <div>Войти</div>
+                  <Link to={"/login"}>Войти</Link>
                 )}
-              </Link>
             </ul>
           </nav>
         </div>
@@ -117,7 +159,7 @@ const Header = () => {
                       className={styles.category}
                       key={item._id}
                     >
-                        <div>{item.categoryName}</div>
+                      <div>{item.categoryName}</div>
                     </Link>
                   );
                 })}
