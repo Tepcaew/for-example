@@ -10,6 +10,8 @@ const Header = () => {
   const token = useSelector((state) => state.application.token);
   const user = useSelector((state) => state.application.user);
 
+  console.log(user)
+
   const [open, setOpen] = useState(false);
 
   const openCloseProfile = () => {
@@ -117,6 +119,7 @@ const Header = () => {
 
                           <p>сообщения</p>
                           <p>настройки</p>
+                          {user.admin === true && <Link to='/consults'><p>консультации</p></Link>}
                           <p onClick={handleExit}>выйти из аккаунта</p>
 
                       </div>
