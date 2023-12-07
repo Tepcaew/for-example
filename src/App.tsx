@@ -14,6 +14,7 @@ import KartsTraining from "./components/pageInfo/OrderTraining/KartsTraining";
 import WhyUsKarts from "./components/pageInfo/WhyUs/WhyUsKarts";
 import OurProgramms from "./components/pageInfo/OurProgramms/OurProgramms";
 import Consultation from "./components/pageInfo/Consultation/Consultation";
+import Consul from "./components/Consul/Consul"
 
 function App() {
   const token = useSelector((state) => state.application.token);
@@ -33,7 +34,10 @@ function App() {
                 path="/lessons/:programId/:lessonId"
                 element={<OneLesson />}
               />
+                <Route path="/consults" element={<Consul />} />
             </>
+
+            // роут для страницы консультаций - в этом компоненте через useSelector достаем консультации и выводим через мап
           ) : (
             <>
               <Route path="/login" element={<SignIn />} />
