@@ -43,6 +43,7 @@ function App() {
           )}
           <Route path="/" element={<StartScreen />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/programs" element={<Programs />} />
           <Route path="/programs/:categoryId" element={<Programs />} />
           <Route path="/program/:program" element={<OneProgram />} />
           <Route path="/karts" element={<KartsTraining />} />

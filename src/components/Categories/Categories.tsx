@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./Categories.module.css";
 import { getCategories } from "../../features/categoriesSlice";
 import Category from "./Category";
+import { Link } from "react-router-dom";
 
-  const Categories = () => {
+const Categories = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.categories);
   useEffect(() => {
@@ -13,6 +14,9 @@ import Category from "./Category";
 
   return (
     <div className={styles.categoriesContainer}>
+      <Link to={`/programs`} className={styles.category}>
+        <h3 className={styles.categoryName}>Все курсы</h3>
+      </Link>
       {categories.map((category) => {
         return (
           <Category

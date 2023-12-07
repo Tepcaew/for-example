@@ -76,15 +76,13 @@ const Header = () => {
           </div>
           <nav>
             <ul className={styles.navList}>
-              <li>О for-example</li>
-
+              <li>О Нас</li>
               <li>Вебинары</li>
               <li>Медиа</li>
               <li>Компаниям</li>
-
                 {token ? (
                   <>
-                    <div>
+                    <div className={open ? styles.btn2 : styles.btn1}>
                       <div
                         onClick={openCloseProfile}
                         className={styles.profileTop}
