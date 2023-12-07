@@ -174,3 +174,185 @@
     background-color: black;
     transition: 1s ease-in-out;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.laramAnimation {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(105, 105, 105);
+  } 
+  
+  .animationWrapper {
+    display: flex;
+  }
+  
+  .dot {
+    padding: 20px;
+  }
+  .animationItem {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: black;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 1;
+    animation: laram 2s linear infinite;
+    
+  }
+  
+  @keyframes laram {
+    0% {
+      transform: translateZ(0);
+    }
+    to {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .blockOne {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .homePage {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne {
+      margin: 0;
+      padding: 0;
+    }
+    .homePageDark {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne p {
+      text-align: center;
+      padding: 0px 10px;
+    }
+  }
+  @media (max-width: 1080px) {
+    .homePage {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne {
+      margin: 0;
+      padding: 0;
+    }
+    .homePageDark {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne p {
+      text-align: center;
+      padding: 0px 10px;
+    }
+    .blockOne h1 {
+      display: none;
+    }
+    .blockOne {
+      margin-top: 50px;
+    }
+  }
+  
+
+
+
+  .laramAnimationa {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(105, 105, 105);
+    margin-bottom: 30px;
+  }
+  
+  .animationWrappera {
+    display: flex;
+  }
+  
+  .dota {
+    padding: 20px;
+  }
+  .animationItema {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: black;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    animation: larama 2s linear infinite;
+  }
+  
+  @keyframes larama {
+    0% {
+      transform: translateZ(0);
+    }
+    to {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .blockOne {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .homePage {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne {
+      margin: 0;
+      padding: 0;
+    }
+    .homePageDark {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne p {
+      text-align: center;
+      padding: 0px 10px;
+    }
+  }
+  @media (max-width: 1080px) {
+    .homePage {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne {
+      margin: 0;
+      padding: 0;
+    }
+    .homePageDark {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne p {
+      text-align: center;
+      padding: 0px 10px;
+    }
+    .blockOne h1 {
+      display: none;
+    }
+    .blockOne {
+      margin-top: 50px;
+    }
+  }
+  
