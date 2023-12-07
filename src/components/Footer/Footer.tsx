@@ -74,7 +74,7 @@ const Footer = () => {
 
           <div className={styles.icon}>
             <img  src="	https://static.tildacdn.com/tild3735-6162-4638-b935-303537323730/ac124aaf-988e-4995-8.svg" alt="" />
-            <img src="https://static.tildacdn.com/tild3732-3930-4661-a135-343664386462/71b8ef05-b3b2-4e22-b.svg" alt="" />
+            <img src=" https://static.tildacdn.com/tild3732-3930-4661-a135-343664386462/71b8ef05-b3b2-4e22-b.svg" alt="" />
             <img src="	https://static.tildacdn.com/tild6164-3937-4335-a562-626365666234/fa1e2018-7c42-48e8-b.svg" alt="" />
           </div>
         </div>
