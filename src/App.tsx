@@ -14,7 +14,8 @@ import KartsTraining from "./components/pageInfo/OrderTraining/KartsTraining";
 import WhyUsKarts from "./components/pageInfo/WhyUs/WhyUsKarts";
 import OurProgramms from "./components/pageInfo/OurProgramms/OurProgramms";
 import Consultation from "./components/pageInfo/Consultation/Consultation";
-import Consul from "./components/Consul/Consul"
+import Consul from "./components/Consul/Consul";
+import PaymentForm from "./components/Pay/Pay";
 
 function App() {
   const token = useSelector((state) => state.application.token);
@@ -34,10 +35,11 @@ function App() {
                 path="/lessons/:programId/:lessonId"
                 element={<OneLesson />}
               />
-                <Route path="/consults" element={<Consul />} />
+              <Route path="/consults" element={<Consul />} />
+              <Route path="/pay" element={<PaymentForm />} />
             </>
-            // роут для страницы консультаций - в этом компоненте через useSelector достаем консультации и выводим через мап
           ) : (
+            // роут для страницы консультаций - в этом компоненте через useSelector достаем консультации и выводим через мап
             <>
               <Route path="/login" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
@@ -54,6 +56,7 @@ function App() {
           <Route path="/pro" element={<OurProgramms />} />
           <Route path="/consult" element={<Consultation />} />
           <Route path="/program/:program" element={<OneProgram />} />
+          <Route path="/pay" element={<Navigate to={"/login"} />} />
         </Routes>
         <Footer />
       </div>

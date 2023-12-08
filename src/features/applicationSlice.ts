@@ -6,14 +6,14 @@ const initialState = {
   signinIn: false,
   token: localStorage.getItem("token"),
   user: {
-    programs: []
+    programs: [],
   },
   users: [],
 };
 
 export const authSignUp = createAsyncThunk(
   "auth/signUp",
-  async ({ login, password, avatar}, thunkAPI) => {
+  async ({ login, password, avatar }, thunkAPI) => {
     const formData = new FormData();
     formData.append("image", avatar);
     formData.append("login", login);
@@ -125,30 +125,30 @@ export const addPrograms = createAsyncThunk(
   }
 );
 
-// export const completeProgram = createAsyncThunk(
-//   "user/program",
-//   async ({ id, program, price }, thunkAPI) => {
-//     try {
-//       const res = await fetch("http://localhost:4000/user", {
-//         method: "PATCH",
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
-//         },
-//         body: JSON.stringify({ id, program, price }),
-//       });
+export const addCash = createAsyncThunk(
+  "user/cash",
+  async ({ id, newCash }, thunkAPI) => {
+    try {
+      const res = await fetch(`http://localhost:4000/user/cash/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+        body: JSON.stringify({ newCash }),
+      });
 
-//       const user = await res.json();
+      const user = await res.json();
 
-//       if (user.error) {
-//         return thunkAPI.rejectWithValue(user.error);
-//       }
-//       return [id, program];
-//     } catch (error) {
-//       thunkAPI.rejectWithValue(error);
-//     }
-//   }
-// );
+      if (user.error) {
+        return thunkAPI.rejectWithValue(user.error);
+      }
+      return user;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 export const completeLesson = createAsyncThunk(
   "user/lesson",
@@ -174,8 +174,6 @@ export const completeLesson = createAsyncThunk(
     }
   }
 );
-
-
 
 export const exits = createAsyncThunk("exit/user", async (_, thunkAPI) => {
   return localStorage.clear();
@@ -221,7 +219,7 @@ export const appliactionSlice = createSlice({
       })
       .addCase(getUsers.fulfilled, (state, action) => {
         state.users = action.payload;
-      })
+      });
   },
 });
 

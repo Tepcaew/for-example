@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../features/categoriesSlice";
 import { Link } from "react-router-dom";
 import { exits, getUserById } from "../../features/applicationSlice";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
 const Header = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.application.token);
   const user = useSelector((state) => state.application.user);
 
-  console.log(user)
+  console.log(user);
 
   const [open, setOpen] = useState(false);
 
@@ -82,52 +82,81 @@ const Header = () => {
               <li>Вебинары</li>
               <li>Медиа</li>
               <li>Компаниям</li>
-                {token ? (
-                  <>
-                    <div className={open ? styles.btn2 : styles.btn1}>
-                      <div
-                        onClick={openCloseProfile}
-                        className={styles.profileTop}
+              {token ? (
+                <>
+                  <div className={open ? styles.btn2 : styles.btn1}>
+                    <div
+                      onClick={openCloseProfile}
+                      className={styles.profileTop}
+                    >
+                      <span>
+                        <img
+                          className={styles.avatar}
+                          src={`http://localhost:4000/${user?.avatar}`}
+                          alt=""
+                        />
+                      </span>
+                      <span>{user.login}</span>
+                      <svg
+                        className={open ? styles.svg4 : styles.svg3}
+                        xmlns="http://www.w3.org/2000/svg"
+                        id="Layer_1"
+                        data-name="Layer 1"
+                        viewBox="0 0 24 24"
                       >
-                        <span>
-                          <img
-                            className={styles.avatar}
-                            src={`http://localhost:4000/${user?.avatar}`}
-                            alt=""
-                          />
-                        </span>
-                        <span>{user.login}</span>
-                        <svg
-                          className={open ? styles.svg4 : styles.svg3}
-                          xmlns="http://www.w3.org/2000/svg"
-                          id="Layer_1"
-                          data-name="Layer 1"
-                          viewBox="0 0 24 24"
+                        <path d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z" />
+                      </svg>
+                    </div>
+                  </div>
+                  {open && (
+                    <div className={open ? styles.profile2 : styles.profile}>
+                      {user.admin ? (
+                        <>
+                          <Link to="/consults" onClick={openCloseProfile}>
+                            <p>консультации</p>
+                          </Link>
+                          <hr />
+                        </>
+                      ) : (
+                        <div>
+                          {token && (
+                            <>
+                              <Link to={"/mycourse"} onClick={openCloseProfile}>
+                                <p>Мои курсы</p>
+                              </Link>
+                              <hr />
+                            </>
+                          )}
+                          <p onClick={openCloseProfile}>Сообщения</p>
+                          <hr />
+                          <div className={styles.cash}>
+                            <p onClick={openCloseProfile}>
+                              Баланс: {user.cash}руб
+                            </p>
+                            <Link to={"/pay"}>
+                              <button onClick={openCloseProfile} className={styles.cashButton}>
+                                Пополнить
+                              </button>
+                            </Link>
+                          </div>
+                          <hr />
+                        </div>
+                      )}
+                      <div className={styles.cash}>
+                        <p onClick={openCloseProfile}>Настройки</p>
+                        <button
+                          className={styles.buttonExit}
+                          onClick={handleExit}
                         >
-                          <path d="m12,16.074c-.4,0-.777-.156-1.061-.439l-5.281-5.281.707-.707,5.281,5.281c.189.189.518.189.707,0l5.281-5.281.707.707-5.281,5.281c-.283.283-.66.439-1.061.439Z" />
-                        </svg>
+                          Выход
+                        </button>
                       </div>
                     </div>
-                    {open && (
-                      <div className={open?styles.profile2:styles.profile}>                               
-                          {token && (
-                            <Link to={"/mycourse"}>
-                              <p>Мои курсы</p>
-                            </Link>
-                          )}
-                          <p>мой баланс: {user.cash}руб</p>
-
-                          <p>сообщения</p>
-                          <p>настройки</p>
-                          {user.admin === true && <Link to='/consults'><p>консультации</p></Link>}
-                          <p onClick={handleExit}>выйти из аккаунта</p>
-
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link to={"/login"}>Войти</Link>
-                )}
+                  )}
+                </>
+              ) : (
+                <Link to={"/login"}>Войти</Link>
+              )}
             </ul>
           </nav>
         </div>
@@ -160,6 +189,7 @@ const Header = () => {
                       to={`/programs/${item._id}`}
                       className={styles.category}
                       key={item._id}
+                      onClick={handle}
                     >
                       <div>{item.categoryName}</div>
                     </Link>
