@@ -11,7 +11,7 @@ const StartScreen = () => {
             <h1>
               Получите новые навыки <br /> для карьеры
             </h1>
-            <Categories/>
+            <Categories />
           </div>
           <div className={styles.divImage}>
             <ul className={styles.listPhoto}>
@@ -44,21 +44,68 @@ const StartScreen = () => {
             <ul className={styles.whyMeList}>
               <li>
                 <b className={styles.whyMeListB}>№1</b>
-                <p className={styles.whyMeListP}>По&nbsp;качеству обучения по&nbsp;версии Smart Ranking</p>
+                <p className={styles.whyMeListP}>
+                  По&nbsp;качеству обучения по&nbsp;версии Smart Ranking
+                </p>
               </li>
               <li>
                 <b className={styles.whyMeListB}>787</b>{" "}
-                <p className={styles.whyMeListP}>курсов: профессии, навыки, высшее образование и MBA</p>
+                <p className={styles.whyMeListP}>
+                  курсов: профессии, навыки, высшее образование и MBA
+                </p>
               </li>
               <li>
                 <b className={styles.whyMeListB}>24/7</b>{" "}
-                <p className={styles.whyMeListP}>Учитесь с&nbsp;любым графиком из&nbsp;любой точки мира</p>
+                <p className={styles.whyMeListP}>
+                  Учитесь с&nbsp;любым графиком из&nbsp;любой точки мира
+                </p>
               </li>
               <li>
                 <b className={styles.whyMeListB}>93%</b>{" "}
-                <p className={styles.whyMeListP}>Окончивших курс отмечают, что достигли своих целей</p>
+                <p className={styles.whyMeListP}>
+                  Окончивших курс отмечают, что достигли своих целей
+                </p>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div className={styles.laramAnimationa}>
+        <div className={styles.animationWrappera}>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dot}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
+          </div>
+          <div className={styles.animationItema}>
+            For-example <div className={styles.dota}>•</div>
           </div>
         </div>
       </div>

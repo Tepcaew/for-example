@@ -54,6 +54,7 @@ export const authSignIn = createAsyncThunk(
       }
 
       localStorage.setItem("token", token.token);
+      localStorage.setItem("user", login);
       return token.token;
     } catch (e) {
       thunkAPI.rejectWithValue(e.message);

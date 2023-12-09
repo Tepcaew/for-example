@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import styles from "./App.module.css";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import SignIn from "./components/Sign/SignIn";
@@ -16,14 +17,22 @@ import OurProgramms from "./components/pageInfo/OurProgramms/OurProgramms";
 import Consultation from "./components/pageInfo/Consultation/Consultation";
 import Consul from "./components/Consul/Consul";
 import PaymentForm from "./components/Pay/Pay";
+import Chat from "./components/Chat/Chat";
+import { useEffect, useState } from "react";
 
 function App() {
   const token = useSelector((state) => state.application.token);
 
   return (
     <>
+      <div className={styles.divChat}>
+
+          <Link to={"/chat"}><img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/chat--v1.png" alt="chat--v1"/></Link>
+
+      </div>
       <div>
         <Header />
+
         <Routes>
           {token ? (
             <>
@@ -37,6 +46,7 @@ function App() {
               />
               <Route path="/consults" element={<Consul />} />
               <Route path="/pay" element={<PaymentForm />} />
+              <Route path="/chat" element={<Chat />} />
             </>
           ) : (
             // роут для страницы консультаций - в этом компоненте через useSelector достаем консультации и выводим через мап

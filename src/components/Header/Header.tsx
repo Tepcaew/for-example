@@ -45,6 +45,7 @@ const Header = () => {
       dispatch(getUserById());
     }
   }, [dispatch, token]);
+
   return (
     <>
       <div className={styles.header}>
