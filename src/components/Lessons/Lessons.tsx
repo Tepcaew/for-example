@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Lesson from "./Lesson";
@@ -10,8 +10,7 @@ const Lessons = () => {
   const myPrograms = useSelector((state) => state.application.user.programs);
   const program = myPrograms?.find((item) => item.program._id === programId);
 
-  console.log(myPrograms)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUserById());
@@ -19,12 +18,10 @@ const Lessons = () => {
 
   return (
     <div>
+      <h1 className={styles.lessonsHeader}>{program?.program.programName}</h1>
       {program?.program?.lessons?.map((item) => {
         return (
           <div key={item._id} className={styles.lessonsPage}>
-            <h1 className={styles.lessonsHeader}>
-              {program.program.programName}
-            </h1>
             <div className={styles.lessonsContainer}>
               <Lesson
                 key={item._id}

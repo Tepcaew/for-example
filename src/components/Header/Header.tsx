@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../features/categoriesSlice";
 import { Link } from "react-router-dom";
 import { exits, getUserById } from "../../features/applicationSlice";
+import logo from "../../assets/logo.png"
 const Header = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.application.token);
   const user = useSelector((state) => state.application.user);
+
+  console.log(user)
 
   const [open, setOpen] = useState(false);
 
@@ -42,12 +45,13 @@ const Header = () => {
       dispatch(getUserById());
     }
   }, [dispatch, token]);
+
   return (
     <>
       <div className={styles.header}>
         <div className={styles.content}>
           <Link to={"/"}>
-            <h3>for-example</h3>
+            <img className={styles.logo} src={logo} alt="" />
           </Link>
           <div onClick={handle} className={courses ? styles.btn2 : styles.btn1}>
             <span>Все курсы</span>
@@ -75,15 +79,13 @@ const Header = () => {
           </div>
           <nav>
             <ul className={styles.navList}>
-              <li>О for-example</li>
-
+              <li>О Нас</li>
               <li>Вебинары</li>
               <li>Медиа</li>
               <li>Компаниям</li>
-
                 {token ? (
                   <>
-                    <div>
+                    <div className={open ? styles.btn2 : styles.btn1}>
                       <div
                         onClick={openCloseProfile}
                         className={styles.profileTop}
@@ -118,6 +120,7 @@ const Header = () => {
 
                           <p>сообщения</p>
                           <p>настройки</p>
+                          {user.admin === true && <Link to='/consults'><p>консультации</p></Link>}
                           <p onClick={handleExit}>выйти из аккаунта</p>
 
                       </div>

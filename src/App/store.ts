@@ -6,6 +6,7 @@ import consults from "../features/consultSlice";
 
 import lessons from "../features/lessonsSlice";
 // import user from "../features/userSlice";
+import messages from "../features/ChatSlice";
 
 const store = configureStore({
   reducer: {
@@ -15,6 +16,8 @@ const store = configureStore({
     consults,
     lessons,
     // user
+    messages
+    
   },
 });
 export default store;

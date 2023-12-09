@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./MyPrograms.module.css";
+import { useSelector } from "react-redux";
 
 const MyProgram = ({ complete, programName, lessonsComplete, image, programId }) => {
-
-  const progress = Math.floor((lessonsComplete.length)/3*100)
+  const programs = useSelector((state) => state.application.user.programs)
+  const program = programs.find((item) => item.program._id.toString() === programId)
+  
+  const progress = Math.floor((lessonsComplete.length)/(program.program.lessons.length)*100)
   
   return (
     <div className={styles.programCard}>

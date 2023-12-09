@@ -22,11 +22,12 @@ const OneLesson = () => {
     setTest(true);
   };
 
-
   const { programId, lessonId } = useParams();
   const myPrograms = useSelector((state) => state.application.user.programs);
 
   const myProgram = myPrograms?.find((item) => item.program._id === programId);
+
+  const completeLesson = myProgram?.lessonsComplete.includes(lessonId);
 
   const lesson = myProgram?.program?.lessons?.find(
     (elem) => elem.lesson._id === lessonId
@@ -41,8 +42,12 @@ const OneLesson = () => {
         <button className={styles.oneLessonButton} onClick={handleVideourok}>
           Видеоурок
         </button>
-        <button className={styles.oneLessonButton} onClick={handleTest}>
-          Тестирование
+        <button
+          disabled={completeLesson}
+          className={styles.oneLessonButton}
+          onClick={handleTest}
+        >
+          {completeLesson ? <div>Тест пройден</div> : <div>Тестирование</div>}
         </button>
       </div>
       <div className={styles.oneLessonBody}>
@@ -110,9 +115,7 @@ const OneLesson = () => {
           </div>
         ) : (
           <div>
-            <Tasks 
-            tasks={lesson?.lesson.tasks}
-            />
+            <Tasks tasks={lesson?.lesson.tasks} />
           </div>
         )}
       </div>
