@@ -19,36 +19,40 @@ const OneProgram = () => {
 
   const oneProgram = programs?.find((item) => item._id === program);
   const price = oneProgram?.price;
-  
+
   const [lowCash, setLowCash] = useState(false);
-  
+
   useEffect(() => {
     dispatch(getPrograms());
-    dispatch(getUserById())
+    dispatch(getUserById());
   }, [dispatch]);
-  
+
   const handleBuyCourse = () => {
     if (cash >= price) {
       setLowCash(false);
       dispatch(addPrograms({ id, program, price }));
+      dispatch(getUserById())
     } else {
       setLowCash(true);
     }
   };
   return (
     <div key={oneProgram?._id} className={styles.oneProgram}>
-      <div className={styles.oneProgramName}>{oneProgram?.programName}</div>
-      <img
-        className={styles.oneProgramImage}
-        src={`http://localhost:4000/${oneProgram?.image}`}
-        alt="картинка программы"
-      />
-      <div className={styles.oneProgramDescr}>
-        <h2 className={styles.oneProgramDescrHead}>О курсе</h2>
-        {oneProgram?.descr}
+      <h1 className={styles.oneProgramName}>{oneProgram?.programName}</h1>
+      <div className={styles.infoBlock}>
+        <img
+          className={styles.oneProgramImage}
+          src={`http://localhost:4000/${oneProgram?.image}`}
+          alt="картинка программы"
+        />
+        <div className={styles.oneProgramDescr}>
+          <h2 className={styles.oneProgramDescrHead}>О курсе</h2>
+          {oneProgram?.descr}
+        </div>
       </div>
-      <div className={styles.oneProgramVideo}>
+      <div className={styles.oneProgramVideoBlock}>
         <iframe
+          className={styles.oneProgramVideo}
           src={`https://www.youtube.com/embed/${oneProgram?.demo}?autoplay=0&mute=0`}
           name="youtube embed"
           allow="autoplay; encrypted-media"
@@ -56,23 +60,25 @@ const OneProgram = () => {
           frameBorder={0}
         ></iframe>
       </div>
-      <div className={styles.oneProgramPrice}>
-        Стоимость курса: {oneProgram?.price}
+      <h3 className={styles.oneProgramPrice}>
+        <div>Стоимость курса: {oneProgram?.price}</div>
+      </h3>
+      <div>
+        <button
+          className={styles.oneProgramButton}
+          disabled={userProg.length}
+          onClick={handleBuyCourse}
+        >
+          {userProg.length ? (
+            <div className={styles.oneProgramButtonText}>Уже изучаете</div>
+          ) : (
+            <div className={styles.oneProgramButtonText}>Купить курс</div>
+          )}
+        </button>
+        {lowCash ? (
+          <div className={styles.oneProgramLowCash}>Недостаточно средств</div>
+        ) : null}
       </div>
-      {lowCash ? (
-        <div className={styles.oneProgramLowCash}>Недостаточно средств</div>
-      ) : null}
-      <button
-        className={styles.oneProgramButton}
-        disabled={userProg.length}
-        onClick={handleBuyCourse}
-      >
-        {userProg.length ? (
-          <div className={styles.oneProgramButtonText}>Уже изучаете</div>
-        ) : (
-          <div>Купить курс</div>
-        )}
-      </button>
     </div>
   );
 };

@@ -1,3 +1,11 @@
 .messages{
     display: flex;
+    flex-direction: column;
+}
+.green{
+    background-color: green;
+    display: flex;
+}
+.red{
+    background-color: red;
 }
