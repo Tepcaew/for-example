@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./StartScreen.module.css";
 import Categories from "../Categories/Categories";
-import rasul from "../../assets/rasul.jpg"
+import img from "../../assets/img.png"
 const StartScreen = () => {
   return (
     <div className={styles.fullScreen}>
@@ -17,16 +17,13 @@ const StartScreen = () => {
             <ul className={styles.listPhoto}>
               <li className={styles.listPhotoItem}>
                 <img
-                  // src="https://cdn.skillbox.pro/wbd-front/skillbox-static/main-page/start-screen/igor-sm@1x.jpg"
-                  src={rasul}
+                  src={img}
                   width="140"
                   height="140"
                   loading="lazy"
                   decoding="auto"
                   alt=""
                 ></img>
-                <span>Василий</span>
-                <p>За полгода стал разработчиком</p>
               </li>
             </ul>
           </div>
