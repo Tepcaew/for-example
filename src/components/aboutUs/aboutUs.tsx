@@ -10,7 +10,7 @@ const AboutUs = () => {
     <div className={styles.main}>
       <div className={styles.headerText}>
         <h1 className={styles.aboutTitle}>О нас</h1>
-        <p className={styles.aboutDesc}>Миссия For Example — дать возможность каждому быть актуальным и востребованным специалистом прямо сейчас.
+        <p className={styles.aboutDesc}>Миссия For-Example — дать возможность каждому быть актуальным и востребованным специалистом прямо сейчас.
           Вне зависимости от возраста и географии.</p>
       </div>
       <section className={styles.container}>
@@ -42,7 +42,7 @@ const AboutUs = () => {
       </section>
       <div className={styles.contSvipe}>
         <section className={styles.svipeSect}>
-          <h2 className={styles.text}>Лекторий Skillbox — открытая площадка для выступлений, воркшопов и других ивентов</h2>
+          <h2 className={styles.text}>Лекторий For-Example — открытая площадка для выступлений, воркшопов и других ивентов</h2>
           <button className={styles.button}>Посмотреть лекции</button>
         </section>
       </div>
@@ -96,7 +96,7 @@ const AboutUs = () => {
             <span className={styles.workersInfo}>
               Основатель и генеральный
               <br />
-              директор Skillbox
+              директор For-Example
             </span>
           </div>
           <div className={styles.companyWorkers}>
@@ -109,7 +109,7 @@ const AboutUs = () => {
             <span className={styles.workersInfo}>
               Основатель и продуктовый
               <br />
-              директор Skillbox
+              директор For-Example
             </span>
           </div>
           <div className={styles.companyWorkers}>
@@ -122,7 +122,7 @@ const AboutUs = () => {
             <span className={styles.workersInfo}>
               Основатель и программный
               <br />
-              директор Skillbox
+              директор For-Example
             </span>
           </div>
         </div>

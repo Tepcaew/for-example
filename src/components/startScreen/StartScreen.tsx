@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./StartScreen.module.css";
 import Categories from "../Categories/Categories";
-import img from "../../assets/img.png"
+import img from "../../assets/img.png";
 const StartScreen = () => {
   return (
     <div className={styles.fullScreen}>
@@ -71,41 +71,51 @@ const StartScreen = () => {
         </div>
       </div>
 
-
       <div className={styles.laramAnimationa}>
         <div className={styles.animationWrappera}>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dot}>•</div>
+            <span className={styles.span}>For-example </span>
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>{" "}
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>{" "}
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>{" "}
+            <div className={styles.dota}>•</div>
           </div>
           <div className={styles.animationItema}>
-            For-example <div className={styles.dota}>•</div>
+            <span className={styles.span}>For-example </span>{" "}
+            <div className={styles.dota}>•</div>
           </div>
         </div>
       </div>
