@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./MyPrograms.module.css";
+import { useSelector } from "react-redux";
 
-const MyProgram = ({ complete, programName, lessons, image, programId }) => {
+const MyProgram = ({ complete, programName, lessonsComplete, image, programId }) => {
+  const programs = useSelector((state) => state.application.user.programs)
+  const program = programs.find((item) => item.program._id.toString() === programId)
+  
+  const progress = Math.floor((lessonsComplete.length)/(program.program.lessons.length)*100)
+  
   return (
     <div className={styles.programCard}>
       <img
@@ -12,7 +18,10 @@ const MyProgram = ({ complete, programName, lessons, image, programId }) => {
       />
       <div className={styles.programText}>
         <div className={styles.programName}>{programName}</div>
-        {complete ? <p className={styles.programComplete}>Курс пройден</p> : <p>Сейчас изучаете</p>}
+        <div>
+          <div>Пройдено: {progress}%</div>
+        <progress className={styles.programProgress} id="file" max="100" value={progress}>{progress}</progress>
+        </div>
       </div>
       <Link
         className={styles.programCardButtonLink}

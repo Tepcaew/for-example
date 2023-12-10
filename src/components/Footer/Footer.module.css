@@ -1,0 +1,102 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(40, 39, 39);
+    width: 100%;
+    height: auto;
+    margin: auto;
+    align-items: center;
+    padding-top: 50px;
+}
+.direction{
+    width: 28%;
+padding-bottom: 20px;
+
+}
+.title div{
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+
+}
+.title div:hover{
+    color:rgb(253, 3, 78);
+}
+.oSkill{
+    margin-right: 30px;
+}
+.oSkill div{
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+
+}
+.oSkill div:hover{
+    color:rgb(253, 3, 78) ;
+}
+
+.twoBlock{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+padding-bottom: 20px;
+flex-direction: column;
+
+}
+.div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.direction h2{
+    border-bottom: 1px solid rgb(253, 3, 78);
+    margin-bottom: 17px;
+padding-bottom: 15px;
+color: white;
+
+    
+    
+}
+.twoBlock h2{
+    border-bottom: 1px solid rgb(253, 3, 78);
+    margin-bottom: 17px;
+padding-bottom: 15px;
+color: white;
+
+
+
+}
+.prog{
+    margin-right: 14px;
+}
+
+.number{
+    display: flex;
+    padding-bottom: 200px;
+    color: white;
+    margin-top: 170px;
+}
+
+.first_block {
+    display: flex;
+}
+
+.numberOne{
+    margin-right: 20px;
+}
+.bl{
+    display: flex;
+}
+.icon{
+    display: flex;
+    gap: 8px;
+}
+
+
+
+.icon img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+

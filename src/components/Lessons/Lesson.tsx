@@ -1,11 +1,13 @@
-import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import OneLesson from "./OneLesson";
+import React, {useEffect} from "react";
+import { Link } from "react-router-dom";
+import styles from "./Lessons.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserById } from "../../features/applicationSlice";
 
 const Lesson = ({
   title,
   descr,
-  id,
+  lessonId,
   number,
   text,
   text1,
@@ -20,47 +22,43 @@ const Lesson = ({
   image3,
   tasks,
   video,
-  complete,
-  program
+  programId,
 }) => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUserById());
+  }, [dispatch]);
+
+
+  const myPrograms = useSelector((state) => state.application.user.programs)
+  const myProgram = myPrograms.find((item) => item.program._id === programId)
+  
+  const completeLesson = myProgram.lessonsComplete.includes(lessonId)
+
   return (
-    <>
-      <Link to={`/lessons/${program}/${id}`}>
-        <div>
-          <h2>
-            Урок: {number}. {title}
-          </h2>
-          <div>
-            <img src={`http://localhost:4000/${image}`} alt="картинка урока" />
-            <div>{descr}</div>
+    <div className={completeLesson ? styles.lessonComplete : styles.lesson}>
+      <Link to={`/lessons/${programId}/${lessonId}`} className={styles.lessonBodyLink}>
+        <div className={styles.lessonBody}>
+          <img
+            className={styles.lessonImage}
+            src={`http://localhost:4000/${image}`}
+            alt="картинка урока"
+          />
+          <div className={styles.lessonText}>
+            <h2 className={styles.lessonTitle}>
+              Урок: {number}. {title}
+            </h2>
+            <div className={styles.lessonDescr}>{descr}</div>
+          {completeLesson ? (
+            <div className={styles.lessonCompleteTrue}>Пройден</div>
+          ) : (
+            <div className={styles.lessonCompleteFalse}>Не пройден</div>
+          )}
           </div>
-          {complete ? <div>Пройден</div> : <div>Не пройден</div>}
         </div>
       </Link>
-      <Routes>
-        <Route
-          path="/lessons/:id"
-          element={
-            <OneLesson
-              title={title}
-              text={text}
-              text1={text1}
-              text2={text2}
-              text3={text3}
-              head1={head1}
-              head2={head2}
-              head3={head3}
-              image={image}
-              image1={image1}
-              image2={image2}
-              image3={image3}
-              tasks={tasks}
-              video={video}
-            />
-          }
-        />
-      </Routes>
-    </>
+    </div>
   );
 };
 

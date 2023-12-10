@@ -1,17 +1,22 @@
+.fullScreen{
+    width: 100%;
+    margin: auto;
+}
 .startScreen{
-    max-width: 1280px;
+    width: 80%;
     margin: 0 auto;
     background-color: #fff;
     margin-bottom: 120px ;
 }
-
+.blockSecond{
+    width: 100%;
+}
 .photoDiv{
     height: 100%;
     left: 0;
     opacity: 0;
     position: absolute;
     top: 0;
-    /* transition: opacity .5s ease-in-out; */
     width: 100%;
 }
 .divImage{
@@ -19,6 +24,9 @@
     overflow: hidden;
     position: relative;
     will-change: opacity;
+    width: 50%;
+    min-width: 400px;
+
 }
 .listPhoto{
     height: 100%;
@@ -54,12 +62,14 @@
 
 }
 .content{
-    background: radial-gradient(54.12% 61.85% at 97.49% 48.58%,#2c5bef 0,#0d30cc 100%);
+    background: radial-gradient(54.12% 61.85% at 97.49% 48.58%,#39ff3f 0,#08890c 100%);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 56px;
+    width: 50%;
+    min-width: 400px;
 }
 .content h1{
     font-size: 60px;
@@ -68,9 +78,8 @@
     margin-bottom: 20px;
 }
 .container{
-    display: grid;
-    grid-template-columns: 1fr 452px;
-    grid-gap: 4px;
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 40px;
     position: relative;
     z-index: 1;
@@ -79,22 +88,21 @@
     height: 100%;
     left: 0;
     opacity: 0;
-    position: absolute;
     top: 0;
 
     width: 100%;
+
     
     opacity: 1;
-    position: absolute;
     z-index: 1;
 }
 .listPhotoItem img{
-    height: 100%;
+    height: auto;
     left: 0;
     position: relative;
-    position: absolute;
     top: 0;
     width: 100%;
+    min-width: 500px;
     z-index: -1;
 }
 .btn{
@@ -104,7 +112,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
-    background-color: #3d3bff;
+    background-color: #3bff48;
     border-radius: 12px;
     font-size: 18px;
     padding: 17px 48px;
@@ -128,10 +136,10 @@
     width: 100%;
 }
 
-
-
 .whyMe{
-    display: grid;
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
     margin-bottom: 120px;
     grid-gap: 32px;
     grid-template-columns: 1fr 568px
@@ -143,7 +151,7 @@
 }
 
 .section2{
-    width: 1168px;
+    width: 100%;
     margin: 0 auto;
 }
 .whyMeList{
@@ -174,3 +182,185 @@
     background-color: black;
     transition: 1s ease-in-out;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.laramAnimation {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(105, 105, 105);
+  } 
+  
+  .animationWrapper {
+    display: flex;
+  }
+  
+  .dot {
+    padding: 20px;
+  }
+  .animationItem {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: black;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 1;
+    animation: laram 2s linear infinite;
+    
+  }
+  
+  @keyframes laram {
+    0% {
+      transform: translateZ(0);
+    }
+    to {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .blockOne {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .homePage {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne {
+      margin: 0;
+      padding: 0;
+    }
+    .homePageDark {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne p {
+      text-align: center;
+      padding: 0px 10px;
+    }
+  }
+  @media (max-width: 1080px) {
+    .homePage {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne {
+      margin: 0;
+      padding: 0;
+    }
+    .homePageDark {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne p {
+      text-align: center;
+      padding: 0px 10px;
+    }
+    .blockOne h1 {
+      display: none;
+    }
+    .blockOne {
+      margin-top: 50px;
+    }
+  }
+  
+
+
+
+  .laramAnimationa {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(105, 105, 105);
+    margin-bottom: 30px;
+  }
+  
+  .animationWrappera {
+    display: flex;
+  }
+  
+  .dota {
+    padding: 20px;
+  }
+  .animationItema {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: black;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    animation: larama 2s linear infinite;
+  }
+  
+  @keyframes larama {
+    0% {
+      transform: translateZ(0);
+    }
+    to {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .blockOne {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .homePage {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne {
+      margin: 0;
+      padding: 0;
+    }
+    .homePageDark {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne p {
+      text-align: center;
+      padding: 0px 10px;
+    }
+  }
+  @media (max-width: 1080px) {
+    .homePage {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne {
+      margin: 0;
+      padding: 0;
+    }
+    .homePageDark {
+      padding: 0;
+      margin: 0;
+    }
+    .blockOne p {
+      text-align: center;
+      padding: 0px 10px;
+    }
+    .blockOne h1 {
+      display: none;
+    }
+    .blockOne {
+      margin-top: 50px;
+    }
+  }
+  

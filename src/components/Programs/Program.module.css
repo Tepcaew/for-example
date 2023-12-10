@@ -49,9 +49,9 @@
 }
 .programPrice {
 }
-.programCardButtonLink{
-    width: 60%;
-    margin: auto;
+.programCardButtonLink {
+  width: 60%;
+  margin: auto;
 }
 .programCardButton {
   width: 100%;
@@ -63,8 +63,69 @@
   font-size: 16px;
 }
 .programCardButton:hover {
-
-    color: rgb(64, 255, 0);
-    background-color: rgb(6, 6, 6);
-
-  }
+  color: rgb(64, 255, 0);
+  background-color: rgb(6, 6, 6);
+}
+.oneProgram {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.oneProgramName {
+}
+.infoBlock {
+  display: flex;
+  flex-wrap: wrap;
+}
+.oneProgramImage {
+  padding: 20px;
+  width: 45%;
+  min-width: 500px;
+  border-radius: 40px;
+  object-fit: cover;
+}
+.oneProgramDescr {
+  width: 55%;
+  min-width: 500px;
+  margin: auto;
+  padding: 2% 8% 2% 8%;
+  font-size: 20px;
+}
+.oneProgramDescrHead {
+  margin: auto;
+  padding: 2% 10% 2% 10%;
+}
+.oneProgramVideoBlock {
+  width: 100%;
+  height: 400px;
+}
+.oneProgramVideo {
+  width: 100%;
+  height: 100%;
+}
+.oneProgramPrice {
+  margin: 20px 0 10px 0;
+  padding: 15px;
+  border-radius: 15px;
+}
+.oneProgramLowCash {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.182);
+  padding: 10px;
+  border-radius: 15px;
+  margin: 5px;
+}
+.oneProgramButton {
+  cursor: pointer;
+  width: 150px;
+  margin: 0 10px 0 10px;
+  border-radius: 15px;
+  border: none;
+  background-color: rgb(24, 244, 24);
+  padding: 5px;
+}
+.oneProgramButtonText {
+  font-size: 20px;
+}
