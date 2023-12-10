@@ -15,7 +15,7 @@ const Chat = () => {
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.application.user.login);
   const mess = useSelector((state)=> state.messages.messages)
-  console.log(mess);
+
 
   const [message, setMessage] = useState("");
 
