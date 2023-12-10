@@ -9,7 +9,7 @@ import {
 } from "../../features/ChatSlice";
 import { getUserById } from "../../features/applicationSlice";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://chat-example1.onrender.com");
 
 const Chat = () => {
   const dispatch = useDispatch();
