@@ -9,13 +9,13 @@ import {
 } from "../../features/ChatSlice";
 import { getUserById } from "../../features/applicationSlice";
 
-const socket = io("https://chat-example1.onrender.com");
+const socket = io("http://localhost:3001");
 
 const Chat = () => {
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.application.user.login);
   const mess = useSelector((state)=> state.messages.messages)
-
+  console.log(mess);
 
   const [message, setMessage] = useState("");
 
