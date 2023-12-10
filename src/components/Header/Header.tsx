@@ -79,9 +79,9 @@ const Header = () => {
           </div>
           <nav>
             <ul className={styles.navList}>
-              <li>О Нас</li>
-              <li>Вебинары</li>
-              <li>Медиа</li>
+              <Link to={"/aboutUs"}>
+                <li>О Нас</li>
+              </Link>
               <li>Компаниям</li>
               {token ? (
                 <>
@@ -135,7 +135,10 @@ const Header = () => {
                               Баланс: {user.cash}руб
                             </p>
                             <Link to={"/pay"}>
-                              <button onClick={openCloseProfile} className={styles.cashButton}>
+                              <button
+                                onClick={openCloseProfile}
+                                className={styles.cashButton}
+                              >
                                 Пополнить
                               </button>
                             </Link>
