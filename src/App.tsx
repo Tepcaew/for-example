@@ -19,6 +19,7 @@ import Consul from "./components/Consul/Consul";
 import PaymentForm from "./components/Pay/Pay";
 import Chat from "./components/Chat/Chat";
 import { useEffect, useState } from "react";
+import AboutUs from "./components/aboutUs/aboutUs";
 
 function App() {
   const token = useSelector((state) => state.application.token);
@@ -26,48 +27,55 @@ function App() {
   return (
     <>
       <div className={styles.divChat}>
-
-          <Link to={"/chat"}><img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/chat--v1.png" alt="chat--v1"/></Link>
-
+        <Link to={"/chat"}>
+          <img
+            width="48"
+            height="48"
+            src="https://img.icons8.com/fluency-systems-regular/48/chat--v1.png"
+            alt="chat--v1"
+          />
+        </Link>
       </div>
       <div>
         <Header />
-
-        <Routes>
-          {token ? (
-            <>
-              <Route path="/login" element={<Navigate to="/" />} />
-              <Route path="/signup" element={<Navigate to="/" />} />
-              <Route path="/mycourse" element={<MyPrograms />} />
-              <Route path="/mycourse/:programId" element={<Lessons />} />
-              <Route
-                path="/lessons/:programId/:lessonId"
-                element={<OneLesson />}
-              />
-              <Route path="/consults" element={<Consul />} />
-              <Route path="/pay" element={<PaymentForm />} />
-              <Route path="/chat" element={<Chat />} />
-            </>
-          ) : (
-            // роут для страницы консультаций - в этом компоненте через useSelector достаем консультации и выводим через мап
-            <>
-              <Route path="/login" element={<SignIn />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/mycourse" element={<Navigate to="/login" />} />
-            </>
-          )}
-          <Route path="/" element={<StartScreen />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/programs/:categoryId" element={<Programs />} />
-          <Route path="/program/:program" element={<OneProgram />} />
-          <Route path="/karts" element={<KartsTraining />} />
-          <Route path="/kart" element={<WhyUsKarts />} />
-          <Route path="/pro" element={<OurProgramms />} />
-          <Route path="/consult" element={<Consultation />} />
-          <Route path="/program/:program" element={<OneProgram />} />
-          <Route path="/pay" element={<Navigate to={"/login"} />} />
-        </Routes>
+        <div className={styles.mainBlock}>
+          <Routes>
+            {token ? (
+              <>
+                <Route path="/login" element={<Navigate to="/" />} />
+                <Route path="/signup" element={<Navigate to="/" />} />
+                <Route path="/mycourse" element={<MyPrograms />} />
+                <Route path="/mycourse/:programId" element={<Lessons />} />
+                <Route
+                  path="/lessons/:programId/:lessonId"
+                  element={<OneLesson />}
+                />
+                <Route path="/consults" element={<Consul />} />
+                <Route path="/pay" element={<PaymentForm />} />
+                <Route path="/chat" element={<Chat />} />
+              </>
+            ) : (
+              // роут для страницы консультаций - в этом компоненте через useSelector достаем консультации и выводим через мап
+              <>
+                <Route path="/login" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/mycourse" element={<Navigate to="/login" />} />
+              </>
+            )}
+            <Route path="/" element={<StartScreen />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/programs/:categoryId" element={<Programs />} />
+            <Route path="/program/:program" element={<OneProgram />} />
+            <Route path="/karts" element={<KartsTraining />} />
+            <Route path="/kart" element={<WhyUsKarts />} />
+            <Route path="/pro" element={<OurProgramms />} />
+            <Route path="/consult" element={<Consultation />} />
+            <Route path="/program/:program" element={<OneProgram />} />
+            <Route path="/pay" element={<Navigate to={"/login"} />} />
+            <Route path="/aboutUs" element={<AboutUs />} />
+          </Routes>
+        </div>
         <Footer />
       </div>
     </>

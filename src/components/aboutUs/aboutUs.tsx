@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 // import 'swiper/css/bundle'
 
-const aboutUs = () => {
+const AboutUs = () => {
   return (
     <div className={styles.main}>
       <div className={styles.headerText}>
@@ -131,5 +131,5 @@ const aboutUs = () => {
   );
 };
 
-export default aboutUs;
+export default AboutUs;
 

@@ -13,11 +13,12 @@ const initialState = {
 
 export const authSignUp = createAsyncThunk(
   "auth/signUp",
-  async ({ login, password, avatar }, thunkAPI) => {
+  async ({ login, password, avatar, email }, thunkAPI) => {
     const formData = new FormData();
     formData.append("image", avatar);
     formData.append("login", login);
     formData.append("password", password);
+    formData.append("email", email);
     // formData.append("admin", admin);
 
     try {

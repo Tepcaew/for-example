@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Pay.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addCash } from "../../features/applicationSlice";
+import { addCash, getUserById } from "../../features/applicationSlice";
 
 const Summ = () => {
   const id = useSelector((state) => state.application.user._id);
   const [newCash, setSum] = useState();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserById());
+  }, [newCash]);
 
   const handleAddCash = () => {
     dispatch(addCash({ id, newCash }));
