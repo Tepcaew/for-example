@@ -32,7 +32,7 @@ const SignUp = () => {
     <>
       <div className={styles.container}>
         <div className={styles.content}>
-          {error ? <div>{error}</div> : null}
+
           <p className={styles.title}>Регистрация</p>
           <form action="" onSubmit={handleSignUp}>
             <input placeholder="Логин" type="text" value={login} onChange={handleLogin} />

@@ -10,12 +10,18 @@ import {
 import { getUserById } from "../../features/applicationSlice";
 
 const socket = io("http://localhost:3001");
+const currentDate = new Date();
+const hours = currentDate.getHours().toString().padStart(2, '0');
+const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+const currentTime = `${hours}:${minutes}`;
+
+
 
 const Chat = () => {
   const dispatch = useDispatch();
-  const userName = useSelector((state) => state.application.user.login);
-  const mess = useSelector((state)=> state.messages.messages)
-  console.log(mess);
+  const avatar = useSelector((state) => state.application.user.avatar);
+  const mess = useSelector((state) => state.messages.messages);
+  
 
   const [message, setMessage] = useState("");
 
@@ -27,10 +33,13 @@ const Chat = () => {
       name: localStorage.getItem("user"),
       id: `${socket.id}`,
       socketID: socket.id,
+      datass: currentTime,
+      avatar: avatar
+
     });
   };
   const saveMessage = () => {
-    dispatch(pushOnBackMessages(messages1))
+    dispatch(pushOnBackMessages(messages1));
   };
   useEffect(() => {
     socket.on("response", (data) => setMessage1([...messages1, data]));
@@ -38,22 +47,19 @@ const Chat = () => {
 
   useEffect(() => {
     dispatch(getUserById());
-
   }, [dispatch]);
   useEffect(() => {
     dispatch(getMessages());
-
   }, [dispatch]);
   return (
-    <>
+    <div className={styles.container}>
       <div>
         <div>
           {" "}
-          <button onClick={saveMessage}>покинуть чат</button>
+          <button onClick={saveMessage} className={styles.cashButton}>покинуть чат</button>
         </div>
-        <input type="text" onChange={(e) => setMessage(e.target.value)} />
-        <button onClick={sendMessage}>Отправить</button>
-        <h1>message:</h1>
+
+        <h1 className={styles.textChat}>Общий чат For-example</h1>
       </div>
       <div>
         <div key={1} className={styles.messages}>
@@ -61,19 +67,33 @@ const Chat = () => {
              <div key={index}>{it}</div>
           )} */}
           {messages1.map((item) =>
-            item.name === userName ? (
-              <div key={item.id} className={styles.green}>
-                <p>вы</p>: {item.text}
+            item.name === localStorage.getItem("user") ? (
+              <div className={styles.mainDiv}>
+                <div key={item.id} className={styles.green}>
+                  {" "}
+                  <p className={styles.div}>{item.datass}</p>
+                  <p className={styles.p}>{item.text}</p>
+                  <img src={`http://localhost:4000/${item?.avatar}`} alt="" />
+                </div>
               </div>
             ) : (
-              <div key={item.id} className={styles.red}>
-                {item.name}:{item.text}
+              <div className={styles.mainDiv}>
+                <p className={styles.redName}> {item.name}</p>
+                <div key={item.id} className={styles.red}>
+                  <img src={`http://localhost:4000/${item?.avatar}`} alt="" />
+                  <p className={styles.p2}>{item.text}</p>
+                  <p className={styles.div2}>{item.datass}</p>
+                </div>
               </div>
             )
           )}
+        </div>{" "}
+        <div className={styles.divInp}>
+          <input type="text" onChange={(e) => setMessage(e.target.value)} />
+          <button onClick={sendMessage}>Отправить</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

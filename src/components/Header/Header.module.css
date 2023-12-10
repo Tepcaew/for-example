@@ -20,16 +20,58 @@
 }
 .content div {
 }
-.btn1 {
+.btnQ{
   display: flex;
   align-items: center;
   background-color: white;
   border: 1px solid black;
   color: black;
   padding: 9px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.btnQ:hover {
+  background-color: #4bff3b;
+  border: 1px solid #3bff41;
+  color: rgb(5, 5, 5);
+  cursor: pointer;
+}
+
+
+.btnW{
+  display: flex;
+  align-items: center;
+  background-color: #4bff3b;
+  border: 1px solid #3bff41;
+  color: rgb(2, 2, 2);
+  padding: 9px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn1 {
+  background-color: white;
+  width: 199px;
+  border: 1px solid black;
+  color: black;
+  padding: 9px 12px;
   border-radius: 100px;
   cursor: pointer;
-  height: 50px;
 }
 .btn1:hover {
   background-color: #4bff3b;
@@ -38,13 +80,13 @@
   cursor: pointer;
 }
 .btn2 {
-  display: flex;
-  align-items: center;
+
   background-color: #4bff3b;
   border: 1px solid #3bff41;
   color: rgb(2, 2, 2);
   padding: 9px 12px;
-  border-radius: 100px;
+  width: 199px;
+  border-radius: 30px 30px 0px 0px;
   cursor: pointer;
 }
 .svg2 {
@@ -221,8 +263,8 @@ li {
 }
 .profile2 {
   display: block;
-  top: 70px;
-  right: -56px;
+  top: 68px;
+  right: -1px;
   position: absolute;
   z-index: 12;
   width: 200px;
