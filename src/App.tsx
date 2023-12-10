@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import MyPrograms from "./components/MyPrograms/MyPrograms";
 import Lessons from "./components/Lessons/Lessons";
 import OneLesson from "./components/Lessons/OneLesson";
+import AboutUs from "./components/aboutUs/aboutUs";
 
 function App() {
   const token = useSelector((state) => state.application.token);
@@ -39,6 +40,7 @@ function App() {
           <Route path="/programs" element={<Programs />} />
           <Route path="/programs/:categoryId" element={<Programs />} />
           <Route path="/program/:program" element={<OneProgram />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
         <Footer />
       </div>
