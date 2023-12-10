@@ -1,0 +1,166 @@
+.main {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1471px;
+}
+
+.headerText {
+    padding-top: 32px;
+    margin: auto;
+    width: 1168px;
+}
+
+.aboutTitle {
+    margin-bottom: 40px;
+    font-size: 60px;
+    line-height: 60px;
+}
+
+.aboutDesc {
+    margin-bottom: 0;
+    max-width: 768px;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.container {
+    grid-gap: 80px 30px;
+    display: block;
+    grid-template-columns: 1fr 770px;
+    width: 1168px;
+    margin: auto;
+}
+
+.infoVideoMain {
+    margin-top: 50px;
+}
+
+.infoVideo {
+    border-radius: 16px;
+    height: 320px;
+    width: 1168px;
+    margin-bottom: 50px;
+}
+
+.infoCours {
+    grid-gap: 30px;
+    grid-template-columns: repeat(2,1fr);
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.aboutDesc2 {
+    font-size: 20px;
+    line-height: 30px;
+    width: 275px;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Playfair Display', serif;
+}
+
+.cours {
+    grid-gap: 30px;
+    grid-template-columns: repeat(2,1fr);
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 750px;
+}
+
+.infoItem {
+    padding: 50px 40px;
+    background: rgb(243, 242, 242);
+    border-radius: 10px;
+    list-style: none;
+    text-decoration: none;
+    height: 185px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.infoSubTitle {
+    font-size: 58px;
+    margin-bottom: 14px;
+    line-height: 1;
+}
+
+.svipeSect {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1168px;
+}
+
+.text {
+    font-size: 52px;
+    line-height: 54px;
+    margin-bottom: 50px;
+}
+
+.button {
+    border-radius: 12px;
+    font-size: 18px;
+    padding: 17px 48px;
+    background: white;
+    
+}
+
+.button:hover {
+    color: white;
+    background: black;
+    cursor: pointer;
+}
+
+.oneExcursionImage {
+    cursor: pointer;
+}
+
+.oneExcursionImage {
+    margin-top: 50px;
+    width: 850px;
+    height: 450px;
+    border-radius: 20px;
+    margin-left: 155px;
+}
+
+.foundersText {
+    font-size: 52px;
+    line-height: 54px;
+    font-weight: 500px;
+    margin-top: 80px;
+    margin-left: 150px;
+}
+
+.foundersMain {
+    margin-left: auto;
+    width: 870px;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3,1fr);
+    display: flex;
+    margin-top: 60px;
+}
+
+.workersAvatar {
+    height: 240px;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.workersName {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.workersInfo {
+    color: var(--text-secondary-color);
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+}
