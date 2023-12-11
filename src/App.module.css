@@ -1,14 +1,13 @@
-.btnChat{
-    background-color: red;
+.btnChat {
+  background-color: red;
 }
-.divChat{
-    position: fixed;
-    top: 90%;
-    right: 20px;
-    z-index: 1000;
+.divChat {
+  position: fixed;
+  top: 90%;
+  right: 20px;
+  z-index: 1000;
 }
-/* .mainBlock{
-    min-height: 700px;
-    margin: 30px auto;
-    background-color: rgba(17, 16, 16, 0.007);
-} */
+.mainBlock {
+  min-height: 650px;
+  margin: 30px auto;
+}

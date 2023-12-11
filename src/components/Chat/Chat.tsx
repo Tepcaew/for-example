@@ -11,33 +11,21 @@ import { getUserById } from "../../features/applicationSlice";
 
 const socket = io("http://localhost:3001");
 const currentDate = new Date();
-const hours = currentDate.getHours().toString().padStart(2, '0');
-const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+const hours = currentDate.getHours().toString().padStart(2, "0");
+const minutes = currentDate.getMinutes().toString().padStart(2, "0");
 const currentTime = `${hours}:${minutes}`;
-
-
 
 const Chat = () => {
   const dispatch = useDispatch();
   const avatar = useSelector((state) => state.application.user.avatar);
   const mess = useSelector((state) => state.messages.messages);
-  
 
   const [message, setMessage] = useState("");
 
   const [messages1, setMessage1] = useState([]);
 
-  const sendMessage = (e) => {
-    socket.emit("message", {
-      text: message,
-      name: localStorage.getItem("user"),
-      id: `${socket.id}`,
-      socketID: socket.id,
-      datass: currentTime,
-      avatar: avatar
+  console.log(message);
 
-    });
-  };
   const saveMessage = () => {
     dispatch(pushOnBackMessages(messages1));
   };
@@ -47,18 +35,23 @@ const Chat = () => {
 
   useEffect(() => {
     dispatch(getUserById());
-  }, [dispatch]);
-  useEffect(() => {
     dispatch(getMessages());
   }, [dispatch]);
+
+  const sendMessage = () => {
+    socket.emit("message", {
+      text: message,
+      name: localStorage.getItem("user"),
+      id: `${socket.id}`,
+      socketID: socket.id,
+      datass: currentTime,
+      avatar: avatar,
+    });
+    setMessage("");
+  };
   return (
     <div className={styles.container}>
       <div>
-        <div>
-          {" "}
-          <button onClick={saveMessage} className={styles.cashButton}>покинуть чат</button>
-        </div>
-
         <h1 className={styles.textChat}>Общий чат For-example</h1>
       </div>
       <div>
@@ -89,8 +82,19 @@ const Chat = () => {
           )}
         </div>{" "}
         <div className={styles.divInp}>
-          <input type="text" onChange={(e) => setMessage(e.target.value)} />
-          <button onClick={sendMessage}>Отправить</button>
+          <input
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              sendMessage();
+            }}
+            className={styles.messageButton}
+          >
+            Отправить
+          </button>
         </div>
       </div>
     </div>
