@@ -24,7 +24,7 @@ const SignIn = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <p className={styles.title}>Войдите в аккаунт</p>
-        {error ? <div>{error}</div> : null}
+        {error ? <div className={styles.error}>{error}</div> : null}
         <form action="" onSubmit={handlePush}>
           <input type="text" onChange={handleLogin} value={login} />
           <input type="password" onChange={handlePassword} value={password} />

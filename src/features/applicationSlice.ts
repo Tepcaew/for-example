@@ -6,18 +6,19 @@ const initialState = {
   signinIn: false,
   token: localStorage.getItem("token"),
   user: {
-    programs: []
+    programs: [],
   },
   users: [],
 };
 
 export const authSignUp = createAsyncThunk(
   "auth/signUp",
-  async ({ login, password, avatar}, thunkAPI) => {
+  async ({ login, password, avatar, email }, thunkAPI) => {
     const formData = new FormData();
     formData.append("image", avatar);
     formData.append("login", login);
     formData.append("password", password);
+    formData.append("email", email);
     // formData.append("admin", admin);
 
     try {
@@ -54,6 +55,7 @@ export const authSignIn = createAsyncThunk(
       }
 
       localStorage.setItem("token", token.token);
+      localStorage.setItem("user", login);
       return token.token;
     } catch (e) {
       thunkAPI.rejectWithValue(e.message);
@@ -125,7 +127,55 @@ export const addPrograms = createAsyncThunk(
   }
 );
 
+export const addCash = createAsyncThunk(
+  "user/cash",
+  async ({ id, newCash }, thunkAPI) => {
+    try {
+      const res = await fetch(`http://localhost:4000/user/cash/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+        body: JSON.stringify({ newCash }),
+      });
 
+      const user = await res.json();
+
+      if (user.error) {
+        return thunkAPI.rejectWithValue(user.error);
+      }
+      return user;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const completeLesson = createAsyncThunk(
+  "user/lesson",
+  async ({ id, programId, lessonId }, thunkAPI) => {
+    try {
+      const res = await fetch(`http://localhost:4000/user/lesson/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+        body: JSON.stringify({ programId, lessonId }),
+      });
+
+      const userPrograms = await res.json();
+
+      if (userPrograms.error) {
+        return thunkAPI.rejectWithValue(userPrograms.error);
+      }
+      return userPrograms;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 export const exits = createAsyncThunk("exit/user", async (_, thunkAPI) => {
   return localStorage.clear();
@@ -171,7 +221,7 @@ export const appliactionSlice = createSlice({
       })
       .addCase(getUsers.fulfilled, (state, action) => {
         state.users = action.payload;
-      })
+      });
   },
 });
 
