@@ -1,5 +1,6 @@
 .btnChat {
   background-color: red;
+  border: none;
 }
 .divChat {
   position: fixed;
