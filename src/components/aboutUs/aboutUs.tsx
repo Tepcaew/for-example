@@ -2,6 +2,9 @@ import React from 'react';
 import styles from '../aboutUs/aboutUs.module.css'
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import img from './Мухьаммад-Амин.jpg'
+import img2 from './Ислам.jpg'
+import img3 from './Дауд.jpg'
 import 'swiper/css';
 // import 'swiper/css/bundle'
 
@@ -88,7 +91,7 @@ const AboutUs = () => {
         <div className={styles.foundersMain}>
           <div className={styles.companyWorkers}>
             <div className={styles.companyWorkersAvatar}>
-              <img src="" alt="photo" />
+              <img src={img} alt="photo" />
             </div>
             <b className={styles.workersName}>
               Мухьаммад-Амин Шахабов
@@ -101,7 +104,7 @@ const AboutUs = () => {
           </div>
           <div className={styles.companyWorkers}>
             <div className={styles.companyWorkersAvatar}>
-              <img src="" alt="photo" />
+              <img src={img3} alt="photo" />
             </div>
             <b className={styles.workersName}>
               Дауд Тепцаев
@@ -114,7 +117,7 @@ const AboutUs = () => {
           </div>
           <div className={styles.companyWorkers}>
             <div className={styles.companyWorkersAvatar}>
-              <img src="" alt="photo" />
+              <img src={img2} alt="photo" />
             </div>
             <b className={styles.workersName}>
               Ислам Шахидов
