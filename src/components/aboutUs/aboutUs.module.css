@@ -135,6 +135,7 @@
 
 .foundersMain {
     margin-left: auto;
+    margin-right: auto;
     width: 870px;
     grid-gap: 30px;
     grid-template-columns: repeat(3,1fr);
@@ -142,12 +143,14 @@
     margin-top: 60px;
 }
 
-.workersAvatar {
-    height: 240px;
+.companyWorkersAvatar img {
+    height: 300px;
+    width: 300px;
     border-radius: 10px;
     display: block;
     margin-bottom: 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
+    object-fit: contain;
     position: relative;
 }
 
@@ -161,6 +164,6 @@
 .workersInfo {
     color: var(--text-secondary-color);
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 16px;
 }
