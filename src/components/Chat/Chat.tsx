@@ -51,9 +51,7 @@ const Chat = () => {
   };
   return (
     <div className={styles.container}>
-      <div>
-        <h1 className={styles.textChat}>Общий чат For-example</h1>
-      </div>
+
       <div>
         <div key={1} className={styles.messages}>
           {/* {mess.map((it, index)=>

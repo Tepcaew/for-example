@@ -23,18 +23,25 @@ import AboutUs from "./components/aboutUs/aboutUs";
 
 function App() {
   const token = useSelector((state) => state.application.token);
+const [open , setOpen] = useState(true)
+const handleOpen = ()=>{
+  setOpen(!open)
+}
 
   return (
     <>
-      <div className={styles.divChat}>
-        <Link to={"/chat"}>
+      {open&&<Chat/>}
+      <div className={styles.divChat} onClick={handleOpen}>
+
+
           <img
             width="48"
             height="48"
             src="https://img.icons8.com/fluency-systems-regular/48/chat--v1.png"
             alt="chat--v1"
           />
-        </Link>
+
+
       </div>
       <div>
         <Header />
