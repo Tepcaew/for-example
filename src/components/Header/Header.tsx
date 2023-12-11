@@ -10,15 +10,11 @@ const Header = () => {
   const token = useSelector((state) => state.application.token);
   const user = useSelector((state) => state.application.user);
 
-  console.log(user);
-
   const [open, setOpen] = useState(false);
 
   const openCloseProfile = () => {
     setOpen(!open);
   };
-  console.log(open);
-
   const [courses, setCourses] = useState(false);
   const handle = () => {
     setCourses(courses ? false : true);
