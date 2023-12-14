@@ -29,6 +29,7 @@
 - https://github.com/Shakhdv
 - https://github.com/Tepcaew
 - https://github.com/Abdurrohman47
+- https://github.com/MShakhabov
 
 ## Запуск
 - скачать бэк по ссылке: https://github.com/Shakhdv/for-example.git
